@@ -1,0 +1,68 @@
+.subNavWrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+.contentWrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    white-space: pre-line;
+}
+.image{
+    flex: 1;
+    width: 1px;
+}
+.description{
+    flex : 1
+}
+.description p{
+    font-size: .8rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    margin-right: 2rem;
+}
+.description p span{
+    color: #044eb7;
+}
+.roleInfo{
+    color: #044eb7;
+    font-weight: 600;
+    font-size: .8rem;
+    flex: 0.8;
+    padding-left: 2rem;
+    
+}
+.roleWrapper{
+    flex: 1.2;
+}
+.raderChartWrapper{
+    flex: 1;
+}
+.roleName{
+    z-index: 1;
+    position: relative;
+    font-size: 1.2rem;
+}
+.roleName .ChName{
+    font-size: 2rem;
+}
+.roleName::after{
+    content: "";
+    display: block;
+    background-color: #FFE200;
+    width: 4rem;
+    height: 1rem;
+    position: absolute;
+    bottom: -.2rem;
+    left: 0;
+    z-index: -1;
+}
+.roleInfo td{
+    vertical-align :top;
+    padding: 1rem .5rem 0 0;
+    line-height: 1.2rem;
+}
+.roleInfo td.field{
+    width: 3rem;
+}
+

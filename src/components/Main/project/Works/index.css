@@ -1,0 +1,10 @@
+.project{
+    display: inline-block;
+    width: 25%;
+    max-width: 400px;
+    margin-top:-6px;
+    cursor: pointer;
+}
+.project img{
+    width: 100%;
+}

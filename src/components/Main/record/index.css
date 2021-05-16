@@ -1,0 +1,28 @@
+.iframeWrapper{
+    width: 100%;
+    position: relative;
+    margin: auto;
+    margin-top: 2rem;
+}
+.iframeWrapper .iframeContainer{
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.iframeWrapper .iframeContainer iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.recordWrapper{
+    margin: 0 10%;
+}
+.recordWrapper .slideList img{
+    display: inline-block;
+    width: 46%;
+    position: relative;
+    margin: 1rem 2%;
+}

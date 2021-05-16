@@ -1,0 +1,50 @@
+.subnavBar{
+    display: inline-block;
+}
+.subnavBar ul{
+    list-style: none;
+    display: flex;
+    border:solid #044EB7 .1rem;
+    border-radius: 99px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+.subnavBar .selectBg{
+    background-color: #044EB7;
+    border-radius: 99px;
+    width: 8rem;
+    height: 100%;
+    position: absolute;
+    transition: all 1s;
+    left : 0rem;
+
+}
+.subnavBar ul li{
+    width: 8rem;
+    padding: .3rem 0;
+    text-align: center;
+    color: #044EB7;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    font-size: .6rem;
+}
+.subnavBar .select{
+    color: #fff;
+}
+
+.subnavBar.light ul{
+    border:solid #fff .1rem;
+}
+.subnavBar.light .selectBg{
+    background-color: #fff;
+}
+.subnavBar.light ul li{
+    color: #fff;
+}
+.subnavBar.light .select{
+    color: #044EB7;
+}

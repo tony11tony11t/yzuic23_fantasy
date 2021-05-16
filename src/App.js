@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import WebIndex from '../src/components/Main/index'
+import WebStory from '../src/components/Main/story'
+import WebTeam from '../src/components/Main/team'
+import WebProject from '../src/components/Main/project'
+import WebRecord from './components/Main/record'
+import Navbar   from '../src/components/Navbar'
+import FixedBar   from '../src/components/FixedBar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+export default class App extends Component {
+  state = {
+    page : "project" // "index" | "story" | "team" | "project"
+  }
+
+  constructor(props){
+    super(props);
+    this.wrapper = React.createRef();
+  }
+
+  changePage = (page) => {
+    
+    this.wrapper.current.scrollTop = 0;
+    this.setState({page : page});
+  }
+
+  getPage = () => {
+    switch(this.state.page){
+      case "index" : 
+        return <WebIndex />    
+      case "story" : 
+        return <WebStory />
+      case "team" : 
+        return <WebTeam />
+      case "project" :
+        return <WebProject />
+      case "record" :
+        return <WebRecord />
+      default:break;
+    }
+  }
+
+  render() {
+    const {page} = this.state;
+    return (
+      <div className="appWrapper" style={{backgroundImage : `url('./asset/bg_${page}.png')`}}>
+        <Navbar changePage = {this.changePage}/>
+        <div className="containerWrapper" ref={this.wrapper}>
+          {this.getPage()}
+        </div>
+        <FixedBar changePage = {this.changePage}/>
+      </div>
+    )
+  }
 }
 
-export default App;
