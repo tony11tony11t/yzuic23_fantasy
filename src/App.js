@@ -4,14 +4,14 @@ import WebStory from '../src/components/Main/story'
 import WebTeam from '../src/components/Main/team'
 import WebProject from '../src/components/Main/project'
 import WebRecord from './components/Main/record'
+import WebResult from './components/Main/result'
 import Navbar   from '../src/components/Navbar'
-import FixedBar   from '../src/components/FixedBar'
-
-import './App.css'
+import {AppWrapper , ContainerWrapper} from './App.style'
 
 export default class App extends Component {
   state = {
-    page : "project" // "index" | "story" | "team" | "project"
+    page : "story", // "index" | "story" | "team" | "project"
+    width : null
   }
 
   constructor(props){
@@ -19,8 +19,13 @@ export default class App extends Component {
     this.wrapper = React.createRef();
   }
 
+  componentDidMount  = () => {
+    window.addEventListener("resize" , () => {
+        this.setState({width : window.innerWidth})
+    })
+  }
+
   changePage = (page) => {
-    
     this.wrapper.current.scrollTop = 0;
     this.setState({page : page});
   }
@@ -37,21 +42,25 @@ export default class App extends Component {
         return <WebProject />
       case "record" :
         return <WebRecord />
+      case "result" :
+        return <WebResult />
       default:break;
     }
   }
 
   render() {
     const {page} = this.state;
+    
     return (
-      <div className="appWrapper" style={{backgroundImage : `url('./asset/bg_${page}.png')`}}>
+      <AppWrapper>
         <Navbar changePage = {this.changePage}/>
-        <div className="containerWrapper" ref={this.wrapper}>
+        <ContainerWrapper ref   = {this.wrapper}
+                          bgUrl = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}>
           {this.getPage()}
-        </div>
-        <FixedBar changePage = {this.changePage}/>
-      </div>
+        </ContainerWrapper>
+      </AppWrapper>
     )
-  }
+  } 
 }
+
 

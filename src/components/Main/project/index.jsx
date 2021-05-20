@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import './index.css'
 import SubnavBar from '../../SubnavBar'
-import Title from '../../Title'
 import Works from './Works'
 import Content from './Content'
 import Data from '../../../data.json';
+import styled from 'styled-components';
 import { v4 as uuidv4 } from "uuid"
 
 export default class WebProject extends Component {
@@ -65,16 +64,37 @@ export default class WebProject extends Component {
         const {contentVisible , contentIndex , project} = this.state;
 
         return (
-            <div>
-                <Title chinese="展覽作品" english="Project" theme="light"/>
-                <div className="subNavWrapper">
-                    <SubnavBar data={this.subNavBarItems} changePage={this.changePage} theme="light"/>
+            <ProjectWrapper>
+                <div className="subNavbarWrapper">
+                    <SubnavBar  data        = {this.subNavBarItems} 
+                                changePage  = {this.changePage}/>
                 </div>
-                <div className="projectWrapper">
+
+                <ProjectContainer>
                     {project.map((obj , i) => obj ? <Works show={this.showContent} index = {i + 1}/> : null)}
-                </div>
+                </ProjectContainer>
+
                 {contentVisible ? <Content close={this.hideContent} index={contentIndex}/> : null}
-            </div>
+            </ProjectWrapper>
         )
     }
 }
+
+const ProjectWrapper = styled.div`
+    margin-top: 2rem;
+
+    .subNavbarWrapper{
+        width: 100%;
+        max-width: 980px;
+        margin : 0 2.5%;
+    }
+`
+
+const ProjectContainer = styled.div`
+    width: 95%;
+    max-width: 1700px;
+    margin : auto;
+    background-color: #fff;
+    padding: 2.7rem 2.5rem;
+    border-radius: 2.5rem;
+`

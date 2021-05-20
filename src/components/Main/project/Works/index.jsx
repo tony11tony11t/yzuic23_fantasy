@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
-import './index.css'
-
+import styled from 'styled-components';
 
 export default class Works extends Component {
 
     render() {
         const {index} = this.props;
         return (
-            <div className="project" onClick={this.props.show.bind(this , index)}>
-                <img src={`./asset/project/project${index}_thumbnail.png`} />
-            </div>
+            <ProjectItem onClick={this.props.show.bind(this , index)}>
+                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_thumbnail.png`} />
+            </ProjectItem>
         )
     }
 }
+const ProjectItem = styled.div`
+    display: inline-block;
+    width: 25%;
+    max-width: 400px;
+    margin-top:-6px;
+    cursor: pointer;
+
+    img{
+        width: 100%;
+    }
+`

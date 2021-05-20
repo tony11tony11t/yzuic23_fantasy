@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './index.css'
 import SubnavBar from '../../SubnavBar'
-import Title from '../../Title'
+import styled from 'styled-components'
 import Role from './Role'
 import RaderChart from '../../RaderChart'
 import Data from '../../../data.json';
@@ -31,25 +30,11 @@ export default class WebIndex extends Component {
     getContent = () => {
         return (
             <React.Fragment>
-                <div className="image">
-                    <img src='./asset/story_all.jpg'/>
-                </div>
-                <div className="description">
-                    <p>
-                        <span>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</span><br/><br/>
-                        「狂想」是什麼呢 ‧‧‧‧‧‧？
-                        它是自由不受限的想像、跳脫框架的夢想。
-                        初步入大學的我們，默默地種下對未來的想像，
-                        將資傳系四年探索，化為四隻小怪獸的進化旅程，
-                        從渺小的大一 — Rookie菜鳥獸，
-                        最終進化成真正的資傳人，大四 — Fantasy狂想獸，
-                        強調四年的成長，亦結合對科幻未來人的想像：
-                        「資傳人最後會進化成什麼模樣呢？」<br/><br/>
-
-                        「狂想進化論」展現五顏六色的創意與想像，
-                        一場屬於我們的狂想進化，未完待續 ‧‧‧‧‧‧！
-                    </p>
-                </div>
+                <h2>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</h2>
+                <p>「狂想」是什麼呢 ‧‧‧‧‧‧？<br/>它是自由不受限的想像、跳脫框架的夢想。</p>
+                <p>初步入大學的我們，默默地種下對未來的想像，<bt/>將資傳系四年探索，化為四隻小怪獸的進化旅程，<br/>從渺小的大一 — Rookie菜鳥獸，最終進化成真正的資傳人，大四 — Fantasy狂想獸。</p>
+                <p>強調四年的成長，亦結合對科幻未來人的想像：<br/>「資傳人最後會進化成什麼模樣呢？」</p>
+                <p>「狂想進化論」展現五顏六色的創意與想像，<br/>一場屬於我們的狂想進化，未完待續 ‧‧‧‧‧‧！</p>
             </React.Fragment>
         )
     }
@@ -60,13 +45,13 @@ export default class WebIndex extends Component {
         const {page} = this.state;
         const {EnName , ChName , Intro , Info , Chart} = Data.monster[page];
         return (
-            <React.Fragment>
+            <MonsterWrapper>
                 <div className="roleInfo">
-                    <h3 className="roleName">
-                        <span className="ChName">{ChName}</span>&nbsp;
+                    <h3>
+                        <span>{ChName}</span>&nbsp;
                         {EnName}
                     </h3>
-                    <p className="roleIntro">{Intro}</p>
+                    <p>{Intro}</p>
                     <table>
                         <tbody>
                             {Info.map(obj => {
@@ -78,30 +63,105 @@ export default class WebIndex extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="roleWrapper">
-                    <Role src={page}/>
-                </div>
                 <div className="raderChartWrapper">
                     <RaderChart size    = {5} 
-                                scale   = {1} 
+                                scale   = {window.innerWidth / 1920} 
                                 data    = {Chart}/>
                 </div>
-            </React.Fragment>
+            </MonsterWrapper>
         )
     }
     
     render() {
         const {page} = this.state;
         return (
-            <div>
-                <Title chinese="狂想故事" english="Story"/>
-                <div className="subNavWrapper">
-                    <SubnavBar data={this.subNavBarItems} changePage = {this.changePage}/>
-                </div>
-                <div className="contentWrapper">
-                    {page === "theme" ? this.getContent() : this.getMonster()};
-                </div>  
-            </div>
+            <StoryWrapper>
+                <StoryContainer flex={1} align={"center"}>
+                    <Role src = {page} bg = {page !== "theme"}/>
+                </StoryContainer>
+                <StoryContainer ref = { this.contentRef } flex={1.6} align={"flex-start"}>
+                    <SubnavBar data         = {this.subNavBarItems} 
+                               changePage   = {this.changePage}/>
+                    <div>
+                        {page === "theme" ? this.getContent() : this.getMonster()}
+                    </div>
+                </StoryContainer>
+            </StoryWrapper>
         )
     }
 }
+
+const StoryWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    position: relative;
+    margin-top : 2rem;
+`
+
+const StoryContainer = styled.div`
+    flex: ${({flex}) => flex};
+
+    h2{
+        font-size : 1.2rem;
+        color: #044EB7;
+        font-weight : 600;
+    }
+
+    p{
+        font-size : 1rem;
+        margin : 1.5rem 0;
+        line-height: 1.5rem;
+
+        span{
+            font-size : 1.2rem;
+            color: #044EB7;
+            font-weight : 600;
+        }
+    }
+`
+const MonsterWrapper = styled.div`
+    display: flex;
+    flex-direction : row;
+    justify-content: space-between;
+
+    .roleInfo{
+        color: #044eb7;
+        font-size: .8rem;
+        flex: 0.8;
+
+        h3{
+            z-index: 1;
+            position: relative;
+            font-size: 1.2rem;
+
+            span{
+                font-size: 2rem;
+            }
+
+            &::after{
+                content: "";
+                display: block;
+                background-color: #FFE200;
+                width: 4rem;
+                height: 1rem;
+                position: absolute;
+                bottom: -.2rem;
+                left: 0;
+                z-index: -1;
+            }
+        }
+
+        td{
+            vertical-align :top;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: .5rem .5rem 0 0;
+            line-height: 1.5rem;
+
+            &.field{
+                width: 4rem;
+            }
+        }
+    }
+`

@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import Title from '../../Title'
 import TeamButton from './TeamButton'
 import Content from './Content'
-import './index.css'
+import styled from 'styled-components';
 
 export default class WebTeam extends Component {
     TeamButtons = ["admin" , "active" , "art" , "GA" , "place" , "PR"];
@@ -24,13 +23,21 @@ export default class WebTeam extends Component {
         const {contentVisible , contentLabel} = this.state;
 
         return (
-            <div>
-                <Title chinese="策展團隊" english="Team"/>
-                <div className="categoryWrapper">
+            <>
+                <CategoryWrapper>
                     {this.TeamButtons.map(label => <TeamButton label = {label} show={this.showContent}/>)}       
-                </div>
+                </CategoryWrapper>
                 {contentVisible ? <Content close={this.hideContent} label={contentLabel}/> : null}
-            </div>
+            </>
         )
     }
 }
+
+const CategoryWrapper = styled.div`
+    display: flex;
+    height: 100%;
+    padding : 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+`
