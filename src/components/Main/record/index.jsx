@@ -32,6 +32,10 @@ const IframeWrapper = styled.div`
     padding-bottom: 56.25%;
     margin-bottom: 2rem;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        margin-bottom: 1rem;
+    }
+
     iframe{
         position: absolute;
         top: 0;
@@ -42,14 +46,25 @@ const IframeWrapper = styled.div`
 `
 
 const RecordPhotoContainer = styled.div`
+
+
     img{
         display: inline-block;
         width: 48%;
         position: relative;
         margin: 1rem 0 1rem 2%;
 
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            margin: .5rem 0 .5rem 1%;
+        }
+        
+
         &:nth-child(odd){
             margin: 1rem 2% 1rem 0;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                margin: .5rem 1% .5rem 0;
+            }
         }
     }
 `

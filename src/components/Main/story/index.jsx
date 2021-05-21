@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid"
 
 export default class WebIndex extends Component {
     state = {
-        page : "theme", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
+        page : "rookie", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
     }
     subNavBarItems = [{
         name : "theme",
@@ -65,7 +65,7 @@ export default class WebIndex extends Component {
                 </div>
                 <div className="raderChartWrapper">
                     <RaderChart size    = {5} 
-                                scale   = {window.innerWidth / 1920} 
+                                scale   = {window.innerWidth > 980 ? window.innerWidth / 1920 : window.innerWidth / 500} 
                                 data    = {Chart}/>
                 </div>
             </MonsterWrapper>
@@ -97,6 +97,10 @@ const StoryWrapper = styled.div`
     align-content: flex-start;
     position: relative;
     margin-top : 2rem;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        flex-direction: column;
+    }
 `
 
 const StoryContainer = styled.div`
@@ -125,6 +129,10 @@ const MonsterWrapper = styled.div`
     flex-direction : row;
     justify-content: space-between;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        flex-direction: column;
+    }
+
     .roleInfo{
         color: #044eb7;
         font-size: .8rem;
@@ -134,6 +142,7 @@ const MonsterWrapper = styled.div`
             z-index: 1;
             position: relative;
             font-size: 1.2rem;
+            white-space: nowrap;
 
             span{
                 font-size: 2rem;
@@ -163,5 +172,9 @@ const MonsterWrapper = styled.div`
                 width: 4rem;
             }
         }
+    }
+
+    .raderChartWrapper{
+        text-align: center;
     }
 `

@@ -3,7 +3,23 @@ import styled from 'styled-components'
 import data from '../../../../data.json'
 
 export default class FacebookContent extends Component {
+    state = {
+        version : "com" // "com" | "mobile"
+    }
+
+    constructor(props){
+        super(props);
+        this.state.version = window.innerWidth >= 980 ? "com" : "mobile";
+    }
+
+    componentDidMount = () => {
+        window.addEventListener("resize" , () => {
+            this.setState({version : window.innerWidth >= 980 ? "com" : "mobile"})
+        })
+    }
+        
     render() {
+        const {version} = this.state;
         return (
             <FacebookWrapper>
                 {
@@ -12,7 +28,7 @@ export default class FacebookContent extends Component {
                             <HistoryWrapper>
                                 <div className = "left">
                                     {
-                                        i % 2 == 1 ? (
+                                        (i % 2 == 1 && version == "com")? (
                                             <HistoryContainerLeft>
                                                 <div className = "ImgContainer">
                                                     <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
@@ -27,7 +43,7 @@ export default class FacebookContent extends Component {
                                 </div>
                                 <div className = "right">
                                     {
-                                        i % 2 == 0 ? (
+                                        (i % 2 == 0 || version == "mobile")? (
                                             <HistoryContainerRight>
                                                 <div>
                                                     <h1>2020<br/><span>{d.date}</span></h1>
@@ -56,13 +72,17 @@ export default class FacebookContent extends Component {
 const FacebookWrapper = styled.div`
 
     width: 85%;
-    max-width: 1600px;
+    max-width: 1200px;
     margin : auto;
     text-align: center;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        width: 100%;
+    }
+
     .endRow{
         display: flex;
-        height: 200px;
+        height: 100px;
 
         .left{
             flex : 1;
@@ -70,6 +90,12 @@ const FacebookWrapper = styled.div`
             border-right: 5px solid #044EB7;
             padding-right: 3rem;
             margin-bottom: 1rem;
+
+            
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                flex : 0;
+                padding-right: 0rem;
+            }
         }
 
         .right{
@@ -88,6 +114,10 @@ const HistoryWrapper = styled.div`
     display: flex;
     height: 300px;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        height: 200px;
+    }
+
     div{
         flex : 1;
 
@@ -95,12 +125,22 @@ const HistoryWrapper = styled.div`
             text-align: right;
             border-right: 5px solid #044EB7;
             padding-right: 3rem;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                flex : 0;
+                padding-right : 0;
+            }
         }
 
         &.right{
             text-align: left;
             border-left: 5px solid #044EB7;
             padding-left : 3rem;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                flex : 1;
+                padding-left : 2rem;
+            }
         }
     }
 `
@@ -113,6 +153,10 @@ const HistoryContainerLeft = styled.div`
     display: flex;
     padding : 1.5rem;
     position: relative;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        padding : 1rem;
+    }
 
     &::before{
         content : "";
@@ -127,6 +171,7 @@ const HistoryContainerLeft = styled.div`
         background-color : #044EB7;
         border : 5px solid #fff;
         opacity : 1;
+
     }
 
     &::after{
@@ -152,8 +197,17 @@ const HistoryContainerLeft = styled.div`
 
         &.ImgContainer{
             flex: 1.5;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                text-align : right;
+            }
+
             img{
                 width: 100%;
+
+                @media ${({theme}) => theme.mediaQueries.bellow980} {
+                    max-width: 130px;
+                }
             }
         
         }
@@ -161,9 +215,18 @@ const HistoryContainerLeft = styled.div`
         h1{
             font-size: 1.5rem;
             color: #044EB7;
+            margin-top : 0;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                font-size: 1rem;
+            }
 
             span{
                 font-size: 1.8rem;
+
+                @media ${({theme}) => theme.mediaQueries.bellow980} {
+                    font-size: 1.3rem;
+                }
             }
         }
     }
@@ -175,14 +238,28 @@ const HistoryContainerRight = styled(HistoryContainerLeft)`
     &::before{
         top : 10%;
         left : calc( -3rem + -3px + -22.5px + -5px);
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            left : calc( -2rem + -3px + -22.5px + -5px);
+        }
     }
 
     &::after{
         top : calc(10% + 20px - 5px);
         left : -2.5rem;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            left : -1.5rem;
+            width : 1.4rem;
+        }
     }
     p{
         margin: 0 1.5rem 0 0;
+        
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size: .8rem;
+            margin: 0;
+        }
     }
 `
 

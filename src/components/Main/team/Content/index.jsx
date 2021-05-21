@@ -57,12 +57,21 @@ const TeamContainer = styled.div`
     height: calc(100% - 5rem);
     text-align: center;
     position: relative;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        padding: 0 2rem;
+    }
     
 
     img{
         display: inline-block;
         height: 90%;
         margin-right: 2rem;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            height: auto;
+            width: 100%;
+        }
     }
 `
 
@@ -75,9 +84,19 @@ const TeamIntro = styled.div`
     height: 90%;
     width : 40%;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        height: auto;
+        width: 100%;
+    }
+
     h1{
         text-align: left;
         margin-top : 0;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            margin-top: 1rem;
+            font-size: 1.8rem;
+        }
     }
 
     p{
@@ -86,9 +105,19 @@ const TeamIntro = styled.div`
         margin-bottom: 5rem;
         font-weight : 600;
 
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size: .8rem;
+            margin-bottom: 2rem;
+        }
+
         &.description{
             font-size: 1rem;
             font-weight : 500;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                font-size: .8rem;
+                text-align: center;
+            }
         }
 
         &.member{
@@ -100,6 +129,13 @@ const TeamIntro = styled.div`
             right : 0;
             text-align: right;
             white-space: pre-line;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                position: relative;
+                text-align : center;
+                font-size: .8rem;
+                margin-bottom: 1rem;
+            }
         }
     }
 `

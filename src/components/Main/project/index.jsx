@@ -97,4 +97,9 @@ const ProjectContainer = styled.div`
     background-color: #fff;
     padding: 2.7rem 2.5rem;
     border-radius: 2.5rem;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        padding: 1.5rem 1.3rem;
+        border-radius: 1.3rem;
+    }
 `

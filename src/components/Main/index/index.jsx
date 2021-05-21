@@ -18,7 +18,11 @@ const IndexWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    height: calc(100% - 6rem); 
+    height: calc(100% - 6rem);
+    
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        padding         : 1rem;
+    }
 
     video{
         position: absolute;
@@ -36,6 +40,11 @@ const IndexWrapper = styled.div`
         font-size: 1.8rem;
         line-height: 2.5rem;
         margin : 0;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size   : 1.2rem;
+            line-height: 2rem;
+        }
     }
 
     h2{
@@ -44,6 +53,11 @@ const IndexWrapper = styled.div`
         font-size: .8rem;
         line-height: 1.5rem;
         margin : 0;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size   : .6rem;
+            line-height: 1.3rem;
+        }
     }
 `
 

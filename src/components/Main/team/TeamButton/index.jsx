@@ -45,6 +45,10 @@ const TeamButtonWrapper = styled.div`
     border: solid 1px black;
     margin : 1rem 2%;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        flex: 0 0 100%;
+    }
+
     .head{
         flex: 1;
         align-self: center;

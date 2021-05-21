@@ -10,7 +10,7 @@ import {AppWrapper , ContainerWrapper} from './App.style'
 
 export default class App extends Component {
   state = {
-    page : "story", // "index" | "story" | "team" | "project"
+    page : "index", // "index" | "story" | "team" | "project"
     width : null
   }
 

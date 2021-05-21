@@ -30,6 +30,10 @@ const ProductWrapper = styled.div`
     width: 90%;
     margin : auto;
     text-align: center;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        width: 100%;
+    }
     
 `
 
@@ -42,6 +46,12 @@ const ProductContainer = styled.div`
     padding-left:   ${({length , index}) => length < 2 ? (index % 2 == 1 ? ".8rem" : 0) : 0};
     padding-right:  ${({length , index}) => length < 2 ? (index % 2 == 0 ? ".8rem" : 0) : 0};
     
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     &:last-child{
         padding : 0;
     }
@@ -56,6 +66,12 @@ const ProductContainer = styled.div`
         transform: translateY(-50%);
         border-radius: .8rem;
         margin : 0;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size: .8rem;
+            padding : .3rem .8rem;
+            border-radius: .6rem;
+        }
     }  
 `
 
@@ -63,12 +79,15 @@ const ProductImgContainer = styled.div`
 
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     img{
         width: 1px;
         flex: 1;
         padding: 0 .8rem;
+
+        
 
         ${({length}) => length > 1 && `&:first-child{
             padding: 0 .8rem 0 0;
@@ -81,6 +100,23 @@ const ProductImgContainer = styled.div`
         ${({length}) => length == 1 && `
             padding: 0;
         `}
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            flex: 0 0 100%;
+            padding : .8rem 0;
+
+            ${({length}) => length > 1 && `&:first-child{
+                padding: 0;
+            }`}
+
+            ${({length}) => length > 1 && `&:last-child{
+                padding: 0;
+            }`}
+
+            ${({length}) => length == 1 && `
+                padding: 0;
+            `}
+        }
 
     }
 `

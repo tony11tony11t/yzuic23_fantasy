@@ -19,6 +19,10 @@ const ProjectItem = styled.div`
     margin-top:-6px;
     cursor: pointer;
 
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        width: 50%;
+    }
+
     img{
         width: 100%;
     }

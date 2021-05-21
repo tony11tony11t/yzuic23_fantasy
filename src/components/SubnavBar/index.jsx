@@ -25,7 +25,7 @@ export default class SubnavBar extends Component {
     }
 
     render() {
-        const {content , bgLeft , index} = this.state;
+        const {content , index} = this.state;
         const {data} = this.props;
         return (
             <SubNavbarWrapper length = {data.length}>
@@ -48,6 +48,10 @@ export default class SubnavBar extends Component {
 const SubNavbarWrapper = styled.div`
     display: inline-block;
     width: 100%;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        display : none;
+    }
 
     ul{
         list-style: none;

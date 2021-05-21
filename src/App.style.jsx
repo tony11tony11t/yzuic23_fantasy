@@ -16,5 +16,6 @@ export const ContainerWrapper = styled.div`
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
         height          : calc(100% - 80px);
+        padding         : 0 1.5rem;
     }
 `

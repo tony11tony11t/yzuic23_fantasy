@@ -40,4 +40,10 @@ const CategoryWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        align-content: flex-start;
+        margin-bottom: 1rem;
+        height: auto;
+    }
 `
