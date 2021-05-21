@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/yzuic23_fantasy/static/css/main.eb09a368.chunk.css",
-    "main.js": "/yzuic23_fantasy/static/js/main.15a637c4.chunk.js",
-    "main.js.map": "/yzuic23_fantasy/static/js/main.15a637c4.chunk.js.map",
+    "main.css": "/yzuic23_fantasy/static/css/main.25818ec0.chunk.css",
+    "main.js": "/yzuic23_fantasy/static/js/main.30cde557.chunk.js",
+    "main.js.map": "/yzuic23_fantasy/static/js/main.30cde557.chunk.js.map",
     "runtime-main.js": "/yzuic23_fantasy/static/js/runtime-main.0a7e5f02.js",
     "runtime-main.js.map": "/yzuic23_fantasy/static/js/runtime-main.0a7e5f02.js.map",
-    "static/js/2.d37cd5ac.chunk.js": "/yzuic23_fantasy/static/js/2.d37cd5ac.chunk.js",
-    "static/js/2.d37cd5ac.chunk.js.map": "/yzuic23_fantasy/static/js/2.d37cd5ac.chunk.js.map",
+    "static/js/2.51ae0fe4.chunk.js": "/yzuic23_fantasy/static/js/2.51ae0fe4.chunk.js",
+    "static/js/2.51ae0fe4.chunk.js.map": "/yzuic23_fantasy/static/js/2.51ae0fe4.chunk.js.map",
     "index.html": "/yzuic23_fantasy/index.html",
-    "static/css/main.eb09a368.chunk.css.map": "/yzuic23_fantasy/static/css/main.eb09a368.chunk.css.map",
-    "static/js/2.d37cd5ac.chunk.js.LICENSE.txt": "/yzuic23_fantasy/static/js/2.d37cd5ac.chunk.js.LICENSE.txt"
+    "static/css/main.25818ec0.chunk.css.map": "/yzuic23_fantasy/static/css/main.25818ec0.chunk.css.map",
+    "static/js/2.51ae0fe4.chunk.js.LICENSE.txt": "/yzuic23_fantasy/static/js/2.51ae0fe4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0a7e5f02.js",
-    "static/js/2.d37cd5ac.chunk.js",
-    "static/css/main.eb09a368.chunk.css",
-    "static/js/main.15a637c4.chunk.js"
+    "static/js/2.51ae0fe4.chunk.js",
+    "static/css/main.25818ec0.chunk.css",
+    "static/js/main.30cde557.chunk.js"
   ]
 }
