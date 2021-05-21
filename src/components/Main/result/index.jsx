@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import SubnavBar from '../../SubnavBar'
+import ProductContent from './ProductContent'
+import FacebookContent from './FacebookContent'
 
 export default class WebResult extends Component {
     state = {
-        page : "theme", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
+        page : "product", // "product" | "facebook" 
     }
 
     subNavBarItems = [{
@@ -17,13 +19,16 @@ export default class WebResult extends Component {
 
     changePage = page => this.setState({page})
 
+
     render() {
+        const {page} = this.state;
         return (
             <ResultWrapper>
                 <div className="subNavbarWrapper">
                     <SubnavBar data         = {this.subNavBarItems}
                                changePage   = {this.changePage}/>
                 </div>
+                {page === "product" ? <ProductContent /> : <FacebookContent />}
             </ResultWrapper>
         )
     }
@@ -35,6 +40,8 @@ const ResultWrapper = styled.div`
     .subNavbarWrapper{
         width: 100%;
         max-width: 400px;
-        margin : 0 2.5%;
+        margin : 0 5%;
     }
 `
+
+

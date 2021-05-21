@@ -54,4 +54,6 @@ const ItemContainer = styled.div`
             font-size: .8rem;
         }
     }
+
+    
 `

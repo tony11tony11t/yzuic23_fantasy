@@ -7,7 +7,7 @@ export default class WebIndex extends Component {
             <IndexWrapper>
                 <h1>元智大學 資訊傳播學系<br/>第二十三屆畢業展</h1>
                 <h2>YZU Information  Communication<br/>The  23rd Graduation  Exhibition</h2>
-                <video src={`${process.env.PUBLIC_URL}/asset/bg_index_video.mp4`} muted autoPlay loop/>
+                <video src={`${process.env.PUBLIC_URL}/asset/bg_index_video.mp4`} muted autoPlay loop playsinline/>
                 <Mask />
             </IndexWrapper>
         )

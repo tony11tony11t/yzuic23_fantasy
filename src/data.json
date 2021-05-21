@@ -723,6 +723,79 @@
             "MurMur": "「文案 文案 文案」，人生第一次發現文案這麼重要！",
             "Member": "楊雅鈞、張家瑄、曾逸昀、許湘鈞"
         }
-    }
+    },
+
+    "product":[{
+        "name" : "Chubby大平台－百寶束口袋",
+        "src" : [
+            "smallBag(1).png",
+            "smallBag(2).png",
+            "smallBag(3).png"
+        ]
+    },{
+        "name" : "狂想不受限－方格筆記本",
+        "src" : [
+            "note(1).png",
+            "note(2).png",
+            "note(3).png"
+        ]
+    },{
+        "name" : "Rookie菜鳥狂想曲－環保折疊袋",
+        "src" : [
+            "bigBag.png"
+        ]
+    },{
+        "name" : "狂想奇幻世界－透明貼紙",
+        "src" : [
+            "sticker.png"
+        ]
+    },{
+        "name" : "狂想大亂鬥－小怪獸明信片",
+        "src" : [
+            "poster(1).png",
+            "poster(1)_back.png",
+            "poster(2).png"
+        ]
+    },{
+        "name" : "狂想大亂鬥－小怪獸明信片",
+        "src" : [
+            "poster(1).png",
+            "poster(1)_back.png"
+        ]
+    },{
+        "name" : "狂想進化論－原創短袖T",
+        "src" : [
+            "cloth.png"
+        ]
+    },{
+        "name" : "狂想展覽手冊",
+        "src" : [
+            "introNote.png"
+        ]
+    },{
+        "name" : "狂想進化論－主視覺海報",
+        "src" : [
+            "post.png"
+        ]
+    }],
+
+    "history" : [{
+        "date" : "01.11",
+        "content" : "大家一起投票去！",
+        "src" : "facebook (1).jpg"
+    },{
+        "date" : "01.12",
+        "content" : "大家一起投票去！",
+        "src" : "facebook (2).jpg"
+    },{
+        "date" : "01.13",
+        "content" : "大家一起投票去！",
+        "src" : "facebook (3).jpg"
+    },{
+        "date" : "01.14",
+        "content" : "大家一起投票去！",
+        "src" : "facebook (4).jpg"
+    }]
+
 
 }
