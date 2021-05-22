@@ -7,7 +7,7 @@ export default class Item extends Component {
         return (
             <ItemContainer onClick={changePage.bind(this , src)}>
                 <img src={`${process.env.PUBLIC_URL}/asset/icon_${src}.png`} />
-                <p><span>{chinese}</span><br/>{english}</p>
+                <p>{chinese}<br/><span>{english}</span></p>
             </ItemContainer>
         )
     }
@@ -15,43 +15,45 @@ export default class Item extends Component {
 
 
 const ItemContainer = styled.div`
-    display: block;
-    flex : 1;
-    position: relative;
-    text-align: center;
+    display     : block;
+    flex        : 1;
+    position    : relative;
+    text-align  : center;
 
     img{
-        width: 60%;
-        z-index: 2;
-        cursor: pointer;
-        position: relative;
+        width       : 70px;
+        z-index     : ${({theme}) => theme.zIndex.lower};
+        cursor      : pointer;
+        position    : relative;
 
         &:hover+p{
-            top : 95%;
-            opacity: 1;
+            top     : 95%;
+            opacity : 1;
         }
     }
 
     p{
-        background-color: #fff;
-        border: 2px solid #044EB7;
-        color: #044EB7;
-        font-size: .4rem;
-        padding: .3rem 0;
-        text-align: center;
-        margin: 0;
-        position: absolute;
-        z-index: 1;
-        left : 50%;
-        transform: translateX(-50%);
-        top: 0;
-        width: calc(60% - 4px);
-        white-space:pre-line;
-        transition : all .5s;
-        opacity: 0;
+        background-color    : ${({theme}) => theme.colors.white};
+        color               : ${({theme}) => theme.colors.main};
+        font-size           : ${({theme}) => theme.fontSize.subTitle}px;
+        line-height         : ${({theme}) => theme.fontSize.subTitle * 1.2}px;
+        z-index             : ${({theme}) => theme.zIndex.lowest};
+        letter-spacing      : 2px;
+        border              : 2px solid ${({theme}) => theme.colors.main};
+        padding             : .4rem 0;
+        text-align          : center;
+        position            : absolute;
+        left                : 50%;
+        top                 : 0;
+        transform           : translateX(-50%);
+        width               : 70px;
+        white-space         : pre-line;
+        transition          : all .5s;
+        opacity             : 0;
 
         span{
-            font-size: .8rem;
+            font-size       : ${({theme}) => theme.fontSize.subTitle * 0.5}px;
+            letter-spacing  : 0;
         }
     }
 

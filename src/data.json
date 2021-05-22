@@ -1,4 +1,26 @@
 {
+    "navBarItem" : [{
+        "src"     : "story",
+        "chinese" : "狂想\n故事",
+        "english" : "Theme\nStory"
+    },{
+        "src"     : "project",
+        "chinese" : "展覽\n作品",
+        "english" : "Works Of\nDisplay"
+    },{
+        "src"     : "team",
+        "chinese" : "策展\n團隊",
+        "english" : "Curatorial\nTeam"
+    },{
+        "src"     : "record",
+        "chinese" : "活動\n紀錄",
+        "english" : "Record"
+    },{
+        "src"     : "result",
+        "chinese" : "展覽\n成果",
+        "english" : "Exhibition\nResults"
+    }],
+
     "monster" :{
         "rookie" : {
             "EnName": "Rookie",

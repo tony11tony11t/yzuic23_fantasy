@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Item from './components/Item'
 import styled from 'styled-components'
 import MobileMenu from './components/MoblieMenu'
+import data from '../../data.json'
 import { v4 as uuidv4 } from 'uuid';
 
 export default class Navbar extends Component {
@@ -10,49 +11,26 @@ export default class Navbar extends Component {
         mobileMenuVisible : false
     }
 
-    navbarItem = [{
-        src     : "story",
-        chinese : "狂想\n故事",
-        english : "Theme\nStory"
-    },{
-        src     : "project",
-        chinese : "展覽\n作品",
-        english : "Works Of\nDisplay"
-    },{
-        src     : "team",
-        chinese : "策展\n團隊",
-        english : "Curatorial\nTeam"
-    },{
-        src     : "record",
-        chinese : "活動\n紀錄",
-        english : "Record"
-    },{
-        src     : "result",
-        chinese : "展覽\n成果",
-        english : "Exhibition\nResults"
-    }]
-
     ShowMoblieMenu = () => this.setState({mobileMenuVisible : true})
     HideMoblieMenu = () => this.setState({mobileMenuVisible : false})
 
     render() {
-        const {changePage} = this.props
+        const {changePage}  = this.props
         const {mobileMenuVisible} = this.state;
+        const {navBarItem} = data;
+
         return (
             <>
                 <NavbarWrapper>
                     <img src={`${process.env.PUBLIC_URL}/asset/logo.png`} />
                     <NavbarCotainer>
-                        {this.navbarItem.map(info => 
+                        {navBarItem.map(info => 
                             <Item {...info} 
                                   changePage = {changePage}
                                   key        = {uuidv4()}/>)}
                     </NavbarCotainer>
                     <NavbarCotainer flex ={1}>
-                        <a onClick = {changePage.bind(this , "index")}>
-                            <img src={`${process.env.PUBLIC_URL}/asset/fixed_home.png`}/>
-                        </a>
-                        <a href="#">
+                        <a onClick = {changePage.bind(this , "index")} href="#">
                             <img src={`${process.env.PUBLIC_URL}/asset/fixed_fb.png`}/>
                         </a>
                     </NavbarCotainer>
@@ -60,80 +38,81 @@ export default class Navbar extends Component {
                 </NavbarWrapper>
                 {
                     mobileMenuVisible ? 
-                        <MobileMenu navbarItem      = {this.navbarItem} 
-                                    changePage      = {changePage}
+                        <MobileMenu changePage      = {changePage}
                                     HideMoblieMenu  = {this.HideMoblieMenu}/> : 
                         null
                 }
-                
             </>
         )
     }
 }
 
 const MobileMeunBtn = styled.div`
-    position: absolute;
-    right : 1rem;
-    display : none;
+    position            : absolute;
+    right               : 1rem;
+    display             : none;
+
+    &::before,
+    &::after{
+        content             : "";
+        width               : 40px;
+        height              : 3px;
+        display             : block;
+        background-color    : ${({theme}) => theme.colors.white};
+    }
 
     &::before{
-        content : "";
-        width : 40px;
-        height: 3px;
-        display: block;
-        margin-bottom: .5rem;
-        background-color: ${({theme}) => theme.colors.white};
-    }
-    &::after{
-        content : "";
-        width : 40px;
-        height: 3px;
-        display: block;
-        background-color: ${({theme}) => theme.colors.white};
+        margin-bottom       : .5rem;
     }
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        display: block;
+        display             : block;
     }
 `
 
 const NavbarWrapper = styled.div`
-    z-index: 100;
-    height: 120px;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    padding: 0 2rem;
-    align-items: center;
-    background-color: #044EB7;
+    z-index             : ${({theme}) => theme.zIndex.higher};
+    height              : ${({theme}) => theme.navBar.height}px;
+    display             : flex;
+    flex-direction      : row;
+    position            : relative;
+    padding             : 0 ${({theme}) => theme.page.padding}px;
+    align-items         : center;
+    background-color    : ${({theme}) => theme.colors.main};
 
     &>img{
-        width: 20%;
-        margin-right: 1rem;
-        min-width: 12rem;
-    }
+        width           : 16%;
+        min-width       : 280px;
+        margin-right    : 20px;
 
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        height: 80px;
-    }
-`;
-
-const NavbarCotainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex : ${({flex}) => flex ?? null};
-    justify-content: flex-end;
-
-    &>a{
-        text-align: center;
-        width: 80px;
-
-        img{
-            width: 80%;
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            min-width   : 250px;
         }
     }
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        display: none;
+        height          : ${({theme}) => theme.navBar.bellow980.height}px;
+        padding         : 0 ${({theme}) => theme.page.bellow980.padding}px;
+    }
+`;
+
+const NavbarCotainer = styled.div`
+    display             : flex;
+    flex-direction      : row;
+    flex                : ${({flex}) => flex ?? null};
+    justify-content     : flex-end;
+    width               : 548px;
+
+    &>a{
+        text-align      : center;
+        width           : 50px;
+
+        img{
+            width       : 100%;
+        }
+    }
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        display         : none;
     }
 `;
