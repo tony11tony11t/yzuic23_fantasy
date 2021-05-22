@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import Data from '../../../../data.json'
+import data from '../../../../data.json'
 import styled , {keyframes} from 'styled-components'
+import {Cancel} from '../../../../theme/templete'
 
 export default class Content extends Component {
     
     render() {
         const {close , label} = this.props;
-        const info = Data.team[label];
+        const info = data.team[label];
         return (
             <TeamWrapper>
-                <Cancel onClick={close}/>
+                <Cancel onClick = {close}/>
                 <TeamContainer>
                     <img src={`${process.env.PUBLIC_URL}/asset/team_photo_${label}.jpg`}/>
                     <TeamIntro>
                         <h1>{info.Name}</h1>
-                        <p>{info.Content}</p>
+                        <h4>{info.Content}</h4>
                         <p className="description">{info.MurMur}</p>
                         <p className="member">{info.Member}</p>
                     </TeamIntro>
@@ -25,7 +26,6 @@ export default class Content extends Component {
 }
 
 const contentShow = keyframes`
-
     from{
         top : 30%;
         opacity: 0;
@@ -37,140 +37,114 @@ const contentShow = keyframes`
 `
 
 const TeamWrapper = styled.div`
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background-color: #000;
-    overflow: auto;
-    animation-name: ${contentShow};
-    animation-duration: .6s;
+    position            : fixed;
+    width               : 100%;
+    height              : 100%;
+    top                 : 0;
+    left                : 0;
+    z-index             : ${({theme}) => theme.zIndex.higher};
+    background-color    : ${({theme}) => theme.colors.black};
+    overflow            : auto;
+    animation-name      : ${contentShow};
+    animation-duration  : .6s;
 `
 
 const TeamContainer = styled.div`
-    max-width: 1500px;
-    margin: auto;
-    margin-top: 5rem;
-    padding: 0 4rem;
-    height: calc(100% - 5rem);
-    text-align: center;
-    position: relative;
+    max-width           : 1500px;
+    margin              : auto;
+    margin-top          : 80px;
+    margin-bottom       : 40px;
+    text-align          : center;
+    position            : relative;
+    padding             : 0 ${({theme}) => theme.page.padding}px;
+    display             : flex;
+    justify-content     : center;
+    align-items         : center;
+    height              : 80%;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        padding: 0 2rem;
+        padding             : 0 ${({theme}) => theme.page.bellow980.padding}px;
+        flex-direction      : column;
+        margin-top          : 80px;
+        justify-content     : flex-start;
     }
     
 
     img{
-        display: inline-block;
-        height: 90%;
-        margin-right: 2rem;
+        width           : 1px;
+        flex            : 0 0 475px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            height: auto;
-            width: 100%;
+            height  : auto;
+            flex    : 1;
+            width   : 100%;
         }
     }
 `
 
 const TeamIntro = styled.div`
-    color: #fff;
-    text-align: left;
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    height: 90%;
-    width : 40%;
+    color           : ${({theme}) => theme.colors.white};
+    text-align      : left;
+    flex            : 1;
+    vertical-align  : top;
+    position        : relative;
+    margin-left     : 40px;
+    height          : 593px;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        height: auto;
-        width: 100%;
+        height          : auto;
+        width           : 100%;
+        margin-left     : 0;
     }
 
     h1{
-        text-align: left;
-        margin-top : 0;
+        font-size       : ${({theme}) => theme.fontSize.h1}px;
+        color           : ${({theme}) => theme.colors.white};
+        margin-bottom   : 40px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            margin-top: 1rem;
-            font-size: 1.8rem;
+            font-size    : ${({theme}) => theme.fontSize.bellow980.h1}px;
+            margin-top   : 20px;
+        }
+    }
+
+    h4{
+        font-size       : ${({theme}) => theme.fontSize.h4}px;
+        color           : ${({theme}) => theme.colors.white};
+        line-height     : ${({theme}) => theme.fontSize. h4 * 1.2}px;
+        margin-bottom   : 100px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
+            margin-bottom   : 50px;
         }
     }
 
     p{
-        font-size: 1.2rem;
-        color: #fff;
-        margin-bottom: 5rem;
-        font-weight : 600;
+        font-size       : ${({theme}) => theme.fontSize.p}px;
+        color           : ${({theme}) => theme.colors.white};
+        line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
+        letter-spacing  : 1px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size: .8rem;
-            margin-bottom: 2rem;
-        }
-
-        &.description{
-            font-size: 1rem;
-            font-weight : 500;
-
-            @media ${({theme}) => theme.mediaQueries.bellow980} {
-                font-size: .8rem;
-                text-align: center;
-            }
+            font-size       : ${({theme}) => theme.fontSize.bellow980.p}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.p * 1.5}px;
+            margin-bottom   : 2rem;
+            text-align      : center;
         }
 
         &.member{
-            font-size: 1rem;
-            font-weight : 500;
-            margin-bottom: 0;
-            position: absolute;
-            bottom: 0;
-            right : 0;
-            text-align: right;
-            white-space: pre-line;
+            position    : absolute;
+            bottom      : 0;
+            right       : 0;
+            text-align  : right;
+            white-space : pre-line;
 
             @media ${({theme}) => theme.mediaQueries.bellow980} {
-                position: relative;
-                text-align : center;
-                font-size: .8rem;
-                margin-bottom: 1rem;
+                position        : relative;
+                text-align      : center;
+                margin-bottom   : 1rem;
             }
         }
-    }
-`
-
-const Cancel = styled.div`
-
-    position: fixed;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #000;
-    height: 4rem;
-    cursor: pointer;
-    z-index: 10;
-
-    &::before{
-        content: "";
-        width: 40px;
-        height: 3px;
-        display: block;
-        position: absolute;
-        top : 2rem;
-        right : 2rem;
-        background-color: #fff;
-        transform: rotate(45deg);
-    }
-    &::after{
-        content: "";
-        width: 40px;
-        height: 3px;
-        display: block;
-        position: absolute;
-        top : 2rem;
-        right : 2rem;
-        background-color: #fff;
-        transform: rotate(-45deg);
     }
 `

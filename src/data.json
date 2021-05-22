@@ -1,5 +1,5 @@
 {
-    "navBarItem" : [{
+    "navBarItems" : [{
         "src"     : "story",
         "chinese" : "狂想\n故事",
         "english" : "Theme\nStory"
@@ -19,6 +19,48 @@
         "src"     : "result",
         "chinese" : "展覽\n成果",
         "english" : "Exhibition\nResults"
+    }],
+
+    "storySubNavBarItems":[{
+        "name"  : "theme",
+        "label" : "主題概念"
+    },{
+        "name"  : "rookie",
+        "label" : "Rookie"
+    },{
+        "name"  : "chubby",
+        "label" : "Chubby"
+    },{
+        "name"  : "boomboom",
+        "label" : "BoomBoom"
+    },{
+        "name"  : "fantasy",
+        "label" : "Fantasy"
+    }],
+
+    "projectSubNavBarItems":[{
+        "name"  : "all",
+        "label" : "全部作品"
+    },{
+        "name"  : "interactive",
+        "label" : "互動裝置類"
+    },{
+        "name"  : "game",
+        "label" : "遊戲類"
+    },{
+        "name"  : "movie",
+        "label" : "影視動畫類"
+    },{
+        "name"  : "marketing",
+        "label" : "行銷企劃類"
+    }],
+
+    "resultSubNavBarItems":[{
+        "name"  : "product",
+        "label" : "周邊商品"
+    },{
+        "name"  : "facebook",
+        "label" : "回顧歷程"
     }],
 
     "monster" :{

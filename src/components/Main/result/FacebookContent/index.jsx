@@ -34,8 +34,8 @@ export default class FacebookContent extends Component {
                                                     <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
                                                 </div>
                                                 <div>
-                                                    <h1>2020<br/><span>{d.date}</span></h1>
-                                                    <p>{d.content}</p>
+                                                    <h3>2020<br/><span>{d.date}</span></h3>
+                                                    <h2>{d.content}</h2>
                                                 </div>
                                             </HistoryContainerLeft>
                                         ) : null
@@ -46,8 +46,8 @@ export default class FacebookContent extends Component {
                                         (i % 2 == 0 || version == "mobile")? (
                                             <HistoryContainerRight>
                                                 <div>
-                                                    <h1>2020<br/><span>{d.date}</span></h1>
-                                                    <p>{d.content}</p>
+                                                    <h3>2020<br/><span>{d.date}</span></h3>
+                                                    <h2>{d.content}</h2>
                                                 </div>
                                                 <div className = "ImgContainer">
                                                     <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
@@ -71,75 +71,75 @@ export default class FacebookContent extends Component {
 
 const FacebookWrapper = styled.div`
 
-    width: 85%;
-    max-width: 1200px;
-    margin : auto;
-    text-align: center;
+    width       : 100%;
+    max-width   : 1200px;
+    margin      : auto;
+    text-align  : center;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
         width: 100%;
     }
 
     .endRow{
-        display: flex;
-        height: 100px;
+        display : flex;
+        height  : 100px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            height  : 30px;
+        }
 
         .left{
-            flex : 1;
-            text-align: right;
-            border-right: 5px solid #044EB7;
-            padding-right: 3rem;
-            margin-bottom: 1rem;
+            flex            : 1;
+            border-right    : 5px solid ${({theme}) => theme.colors.main};
+            padding-right   : 60px;
+            margin-bottom   : 20px;
 
-            
             @media ${({theme}) => theme.mediaQueries.bellow980} {
-                flex : 0;
-                padding-right: 0rem;
+                flex            : 0;
+                padding-right   : 0;
             }
         }
 
         .right{
-            flex : 1;
-            text-align: left;
-            border-left: 5px solid #044EB7;
-            padding-left : 3rem;
-            margin-bottom: 1rem;
+            flex            : 1;
+            border-left     : 5px solid ${({theme}) => theme.colors.main};
+            padding-left    : 60px;
+            margin-bottom   : 20px;
         }
     }
-
 `
 
 const HistoryWrapper = styled.div`
 
-    display: flex;
-    height: 300px;
+    display : flex;
+    height  : 300px;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        height: 200px;
+        height  : 250px;
     }
 
     div{
         flex : 1;
 
         &.left{
-            text-align: right;
-            border-right: 5px solid #044EB7;
-            padding-right: 3rem;
+            text-align      : right;
+            border-right    : 5px solid ${({theme}) => theme.colors.main};
+            padding-right   : 60px;
 
             @media ${({theme}) => theme.mediaQueries.bellow980} {
-                flex : 0;
-                padding-right : 0;
+                flex            : 0;
+                padding-right   : 0;
             }
         }
 
         &.right{
-            text-align: left;
-            border-left: 5px solid #044EB7;
-            padding-left : 3rem;
+            text-align      : left;
+            border-left     : 5px solid ${({theme}) => theme.colors.main};
+            padding-left    : 60px;
 
             @media ${({theme}) => theme.mediaQueries.bellow980} {
-                flex : 1;
-                padding-left : 2rem;
+                flex            : 1;
+                padding-left    : 40px;
             }
         }
     }
@@ -147,86 +147,93 @@ const HistoryWrapper = styled.div`
 
 
 const HistoryContainerLeft = styled.div`
-    border : 6px solid #044EB7;
-    border-radius: 30px;
-    background-color: #fff;
-    display: flex;
-    padding : 1.5rem;
-    position: relative;
+    border              : 6px solid ${({theme}) => theme.colors.main};
+    border-radius       : 30px;
+    background-color    : ${({theme}) => theme.colors.white};
+    display             : flex;
+    padding             : 30px;
+    position            : relative;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        padding : 1rem;
+        padding         : 20px;
     }
 
     &::before{
-        content : "";
-        width : 30px;
-        height : 30px;
-        display : block;
-        position : absolute;
-        border-radius : 999px;
-        top : 10%;
-        right : calc( -3rem + -3px + -22.5px + -5px);
-        
-        background-color : #044EB7;
-        border : 5px solid #fff;
-        opacity : 1;
-
+        content             : "";
+        width               : 30px;
+        height              : 30px;
+        display             : block;
+        position            : absolute;
+        border-radius       : 999px;
+        top                 : 10%;
+        right               : calc( -60px + -3px + -22.5px + -5px); 
+        background-color    : ${({theme}) => theme.colors.main};
+        border              : 5px solid ${({theme}) => theme.colors.white};
+        opacity             : 1;
     }
 
     &::after{
-        content : "";
-        width : 2.4rem;
-        height : 10px;
-        display : block;
-        position : absolute;
-        top : calc(10% + 20px - 5px);
-        right : -2.5rem;
-        background-color : #044EB7;
-        opacity : 1;
+        content             : "";
+        width               : 48px;
+        height              : 10px;
+        display             : block;
+        position            : absolute;
+        top                 : calc(10% + 20px - 5px);
+        right               : -50px;
+        background-color    : ${({theme}) => theme.colors.main};
+        opacity             : 1;
     }
 
-    p{
-        font-size: 1.8rem;
-        color: #044EB7;
-        margin: 0 0 0 1.5rem;
+    h2{
+        font-size       : ${({theme}) => theme.fontSize.h2}px;
+        color           : ${({theme}) => theme.colors.main};
+        line-height     : ${({theme}) => theme.fontSize.h2 * 1.2}px;
+        font-weight     : 500;
+        margin          : 0 0 0 20px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size   : ${({theme}) => theme.fontSize.bellow980.h4}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h4 * 1.2}px;
+            margin      : 0
+        }
+    }
+
+    h3{
+        font-size       : ${({theme}) => theme.fontSize.h3}px;
+        color           : ${({theme}) => theme.colors.main};
+        line-height     : ${({theme}) => theme.fontSize.h3 * 1.3}px;
+        margin-bottom   : 20px;
+        font-weight     : 500;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.3}px;
+        }
+
+        span{
+            font-size       : ${({theme}) => theme.fontSize.h1}px;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                font-size   : ${({theme}) => theme.fontSize.bellow980.h3}px;
+            }
+        }
     }
 
     &>div{
-        flex: 1;
+        flex    : 1;
 
         &.ImgContainer{
-            flex: 1.5;
-
-            @media ${({theme}) => theme.mediaQueries.bellow980} {
-                text-align : right;
-            }
-
+            flex    : 1.3;
             img{
-                width: 100%;
-
-                @media ${({theme}) => theme.mediaQueries.bellow980} {
-                    max-width: 130px;
-                }
+                width   : 100%;
             }
-        
         }
-
-        h1{
-            font-size: 1.5rem;
-            color: #044EB7;
-            margin-top : 0;
-
-            @media ${({theme}) => theme.mediaQueries.bellow980} {
-                font-size: 1rem;
-            }
-
-            span{
-                font-size: 1.8rem;
-
-                @media ${({theme}) => theme.mediaQueries.bellow980} {
-                    font-size: 1.3rem;
-                }
+        
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            &.ImgContainer{
+                flex        : 0 0 130px;
+                text-align  : right;
+                align-self  : center;
             }
         }
     }
@@ -236,30 +243,26 @@ const HistoryContainerLeft = styled.div`
 const HistoryContainerRight = styled(HistoryContainerLeft)`
 
     &::before{
-        top : 10%;
-        left : calc( -3rem + -3px + -22.5px + -5px);
+        top     : 10%;
+        left    : calc( -60px + -3px + -22.5px + -5px);
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            left : calc( -2rem + -3px + -22.5px + -5px);
+            left : calc( -40px + -3px + -22.5px + -5px);
         }
     }
 
     &::after{
-        top : calc(10% + 20px - 5px);
-        left : -2.5rem;
+        top     : calc(10% + 20px - 5px);
+        left    : -50px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            left : -1.5rem;
-            width : 1.4rem;
+            left    : -30px;
+            width   : 28px;
         }
     }
-    p{
-        margin: 0 1.5rem 0 0;
-        
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size: .8rem;
-            margin: 0;
-        }
+
+    h2{
+        margin : 0 20px 0 0;
     }
 `
 

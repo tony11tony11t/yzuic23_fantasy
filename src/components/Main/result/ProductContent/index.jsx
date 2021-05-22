@@ -10,7 +10,7 @@ export default class ProductContent extends Component {
                     data.product.map((d , i) => {
                         return (
                             <ProductContainer length = {d.src.length} index = {i}>
-                                <h2>{d.name}</h2>
+                                <h5>{d.name}</h5>
                                 <ProductImgContainer length = {d.src.length}>
                                 {
                                     d.src.map(s => <img src={`${process.env.PUBLIC_URL}/asset/products/${s}`} />)
@@ -26,75 +26,66 @@ export default class ProductContent extends Component {
 }
 
 const ProductWrapper = styled.div`
-
-    width: 90%;
-    margin : auto;
-    text-align: center;
-
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        width: 100%;
-    }
-    
+    width       : 100%;
+    margin      : auto;
+    text-align  : center;
 `
 
 const ProductContainer = styled.div`
-
-    position: relative;
-    margin : 2rem 0 3rem 0;
-    width: ${({length}) => length > 1 ? "100%" : "50%"};
-    display: inline-block;
-    padding-left:   ${({length , index}) => length < 2 ? (index % 2 == 1 ? ".8rem" : 0) : 0};
-    padding-right:  ${({length , index}) => length < 2 ? (index % 2 == 0 ? ".8rem" : 0) : 0};
+    position        : relative;
+    margin          : 40px 0 60px;
+    width           : ${({length}) => length > 1 ? "100%" : "50%"};
+    display         : inline-block;
+    padding-left    : ${({length , index}) => length == 1 ? (index % 2 == 1 ? ".8rem" : 0) : 0};
+    padding-right   : ${({length , index}) => length == 1 ? (index % 2 == 0 ? ".8rem" : 0) : 0};
     
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+        width           : 100%;
+        padding-left    : 0;
+        padding-right   : 0;
     }
 
     &:last-child{
         padding : 0;
     }
 
-    h2{
-        font-size: 1.2rem;
-        color : #fff;
-        background-color: #044EB7;
-        padding : .5rem 1rem;
-        position: absolute;
-        top : 0;
-        transform: translateY(-50%);
-        border-radius: .8rem;
-        margin : 0;
+    h5{
+        font-size       : ${({theme}) => theme.fontSize.h5}px;
+        color           : ${({theme}) => theme.colors.white};
+        background-color: ${({theme}) => theme.colors.main};
+        line-height     : ${({theme}) => theme.fontSize.h5}px;
+        padding         : 10px 20px;
+        position        : absolute;
+        top             : 0;
+        transform       : translateY(-50%);
+        border-radius   : 16px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size: .8rem;
-            padding : .3rem .8rem;
-            border-radius: .6rem;
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.5}px;
+            padding         : 6px 16px;
+            border-radius   : 12px;
         }
-    }  
+    }
 `
 
 const ProductImgContainer = styled.div`
-
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    width           : 100%;
+    display         : flex;
+    flex-wrap       : wrap;
+    justify-content : space-between;
 
     img{
-        width: 1px;
-        flex: 1;
-        padding: 0 .8rem;
-
-        
+        width       : 1px;
+        flex        : 1;
+        padding     : 0 16px;
 
         ${({length}) => length > 1 && `&:first-child{
-            padding: 0 .8rem 0 0;
+            padding: 0 16px 0 0;
         }`}
 
         ${({length}) => length > 1 && `&:last-child{
-            padding: 0 0 0 .8rem;
+            padding: 0 0 0 16px;
         }`}
 
         ${({length}) => length == 1 && `
@@ -102,21 +93,13 @@ const ProductImgContainer = styled.div`
         `}
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            flex: 0 0 100%;
-            padding : .8rem 0;
+            flex        : 0 0 100%;
+            padding     : 16px 0;
 
-            ${({length}) => length > 1 && `&:first-child{
-                padding: 0;
-            }`}
-
-            ${({length}) => length > 1 && `&:last-child{
-                padding: 0;
-            }`}
-
-            ${({length}) => length == 1 && `
-                padding: 0;
-            `}
+            &:first-child,
+            &:last-child{
+                padding: 8px 0;
+            }
         }
-
     }
 `

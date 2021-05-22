@@ -37,43 +37,42 @@ const HeadShake = keyframes`
 `;
 
 const TeamButtonWrapper = styled.div`
-    background-image : ${`url('${process.env.PUBLIC_URL}/asset/team_bg.png')`};
-    border-radius: 1.5rem;
-    flex: 0 0 40%;
-    display: flex;
-    padding: 1rem 2%;
-    border: solid 1px black;
-    margin : 1rem 2%;
+    background-image    : ${`url('${process.env.PUBLIC_URL}/asset/team_bg.png')`};
+    border-radius       : 30px;
+    flex                : 0 0 40%;
+    display             : flex;
+    padding             : 20px 2%;
+    margin              : 20px 2%;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        flex: 0 0 100%;
+        flex            : 0 0 100%;
     }
 
     .head{
-        flex: 1;
-        align-self: center;
-        text-align: center;
+        flex        : 1;
+        align-self  : center;
+        text-align  : center;
 
         img{
-            width: 70%;
+            width   : 70%;
         }
     }
     .text{
-        flex: 2;
-        align-self: center;
+        flex        : 2;
+        align-self  : center;
 
         img{
-            width: 90%;
+            width   : 90%;
         }
     }
 
     &:hover{
         .head{
             img{
-                animation-name:${HeadShake};
-                animation-duration:1s;
-                animation-timing-function : linear;
-                transform-origin: bottom
+                animation-name              : ${HeadShake};
+                animation-duration          : 1s;
+                animation-timing-function   : linear;
+                transform-origin            : bottom;
             }
         }
     }

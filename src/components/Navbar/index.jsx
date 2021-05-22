@@ -17,20 +17,21 @@ export default class Navbar extends Component {
     render() {
         const {changePage}  = this.props
         const {mobileMenuVisible} = this.state;
-        const {navBarItem} = data;
+        const {navBarItems} = data;
 
         return (
             <>
                 <NavbarWrapper>
-                    <img src={`${process.env.PUBLIC_URL}/asset/logo.png`} />
+                    <img src     = {`${process.env.PUBLIC_URL}/asset/logo.png`} 
+                         onClick = {changePage.bind(this , "index")} />
                     <NavbarCotainer>
-                        {navBarItem.map(info => 
+                        {navBarItems.map(info => 
                             <Item {...info} 
                                   changePage = {changePage}
                                   key        = {uuidv4()}/>)}
                     </NavbarCotainer>
                     <NavbarCotainer flex ={1}>
-                        <a onClick = {changePage.bind(this , "index")} href="#">
+                        <a href="#">
                             <img src={`${process.env.PUBLIC_URL}/asset/fixed_fb.png`}/>
                         </a>
                     </NavbarCotainer>
@@ -48,9 +49,10 @@ export default class Navbar extends Component {
 }
 
 const MobileMeunBtn = styled.div`
-    position            : absolute;
-    right               : 1rem;
-    display             : none;
+    position    : absolute;
+    right       : 1rem;
+    display     : none;
+    cursor      : pointer;
 
     &::before,
     &::after{
@@ -62,7 +64,7 @@ const MobileMeunBtn = styled.div`
     }
 
     &::before{
-        margin-bottom       : .5rem;
+        margin-bottom   : .5rem;
     }
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
@@ -72,18 +74,19 @@ const MobileMeunBtn = styled.div`
 
 const NavbarWrapper = styled.div`
     z-index             : ${({theme}) => theme.zIndex.higher};
+    background-color    : ${({theme}) => theme.colors.main};
     height              : ${({theme}) => theme.navBar.height}px;
+    padding             : 0 ${({theme}) => theme.page.padding}px;
     display             : flex;
     flex-direction      : row;
     position            : relative;
-    padding             : 0 ${({theme}) => theme.page.padding}px;
     align-items         : center;
-    background-color    : ${({theme}) => theme.colors.main};
 
     &>img{
         width           : 16%;
         min-width       : 280px;
         margin-right    : 20px;
+        cursor          : pointer;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             min-width   : 250px;

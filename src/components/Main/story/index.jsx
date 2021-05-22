@@ -3,38 +3,33 @@ import SubnavBar from '../../SubnavBar'
 import styled from 'styled-components'
 import Role from './Role'
 import RaderChart from '../../RaderChart'
-import Data from '../../../data.json';
+import data from '../../../data.json';
 import { v4 as uuidv4 } from "uuid"
 
 export default class WebIndex extends Component {
     state = {
-        page : "rookie", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
+        page : "theme", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
     }
-    subNavBarItems = [{
-        name : "theme",
-        label : "主題概念"
-    },{
-        name : "rookie",
-        label : "Rookie"
-    },{
-        name : "chubby",
-        label : "Chubby"
-    },{
-        name : "boomboom",
-        label : "BoomBoom"
-    },{
-        name : "fantasy",
-        label : "Fantasy"
-    }]
 
     getContent = () => {
         return (
             <React.Fragment>
-                <h2>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</h2>
-                <p>「狂想」是什麼呢 ‧‧‧‧‧‧？<br/>它是自由不受限的想像、跳脫框架的夢想。</p>
-                <p>初步入大學的我們，默默地種下對未來的想像，<bt/>將資傳系四年探索，化為四隻小怪獸的進化旅程，<br/>從渺小的大一 — Rookie菜鳥獸，最終進化成真正的資傳人，大四 — Fantasy狂想獸。</p>
-                <p>強調四年的成長，亦結合對科幻未來人的想像：<br/>「資傳人最後會進化成什麼模樣呢？」</p>
-                <p>「狂想進化論」展現五顏六色的創意與想像，<br/>一場屬於我們的狂想進化，未完待續 ‧‧‧‧‧‧！</p>
+                <h4>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</h4>
+                <p>
+                    「狂想」是什麼呢 ‧‧‧‧‧‧？<br/>
+                    它是自由不受限的想像、跳脫框架的夢想。
+                </p>
+                <p>
+                    初步入大學的我們，默默地種下對未來的想像，<br/>
+                    將資傳系四年探索，化為四隻小怪獸的進化旅程，<br/>
+                    從渺小的大一 — Rookie菜鳥獸，最終進化成真正的資傳人，大四 — Fantasy狂想獸。
+                </p>
+                <p>強調四年的成長，亦結合對科幻未來人的想像：
+                    <br/>「資傳人最後會進化成什麼模樣呢？」
+                </p>
+                <p>「狂想進化論」展現五顏六色的創意與想像，
+                    <br/>一場屬於我們的狂想進化，未完待續 ‧‧‧‧‧‧！
+                </p>
             </React.Fragment>
         )
     }
@@ -43,14 +38,13 @@ export default class WebIndex extends Component {
 
     getMonster = () => {
         const {page} = this.state;
-        const {EnName , ChName , Intro , Info , Chart} = Data.monster[page];
+        const {EnName , ChName , Intro , Info , Chart} = data.monster[page];
         return (
             <MonsterWrapper>
                 <div className="roleInfo">
-                    <h3>
-                        <span>{ChName}</span>&nbsp;
-                        {EnName}
-                    </h3>
+                    <h4>
+                        <span>{ChName}</span>&nbsp;{EnName}
+                    </h4>
                     <p>{Intro}</p>
                     <table>
                         <tbody>
@@ -63,7 +57,7 @@ export default class WebIndex extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="raderChartWrapper">
+                <div className="raderChartContainer">
                     <RaderChart size    = {5} 
                                 scale   = {window.innerWidth > 980 ? window.innerWidth / 1920 : window.innerWidth / 500} 
                                 data    = {Chart}/>
@@ -74,17 +68,17 @@ export default class WebIndex extends Component {
     
     render() {
         const {page} = this.state;
+        const {storySubNavBarItems} = data;
         return (
             <StoryWrapper>
-                <StoryContainer flex={1} align={"center"}>
+                <SubnavBar  data         = {storySubNavBarItems} 
+                            changePage   = {this.changePage}
+                            width        = {65}/>
+                <StoryContainer ref = { this.contentRef } >
                     <Role src = {page} bg = {page !== "theme"}/>
-                </StoryContainer>
-                <StoryContainer ref = { this.contentRef } flex={1.6} align={"flex-start"}>
-                    <SubnavBar data         = {this.subNavBarItems} 
-                               changePage   = {this.changePage}/>
-                    <div>
+                    <Content>
                         {page === "theme" ? this.getContent() : this.getMonster()}
-                    </div>
+                    </Content>
                 </StoryContainer>
             </StoryWrapper>
         )
@@ -92,89 +86,80 @@ export default class WebIndex extends Component {
 }
 
 const StoryWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    position: relative;
-    margin-top : 2rem;
-
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        flex-direction: column;
-    }
+    display         : flex;
+    flex-direction  : column;
+    position        : relative;
+    margin-top      : 30px;
 `
 
 const StoryContainer = styled.div`
-    flex: ${({flex}) => flex};
+    display         : flex;
+    flex-direction  : row;
+    flex            : 1;
+    margin-top      : 20px;
 
-    h2{
-        font-size : 1.2rem;
-        color: #044EB7;
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        flex-direction  : column;
+    }
+
+    h4{
+        font-size   : ${({theme}) => theme.fontSize.h4}px;
+        color       : ${({theme}) => theme.colors.main};
         font-weight : 600;
     }
 
     p{
-        font-size : 1rem;
-        margin : 1.5rem 0;
-        line-height: 1.5rem;
-
-        span{
-            font-size : 1.2rem;
-            color: #044EB7;
-            font-weight : 600;
-        }
+        font-size   : ${({theme}) => theme.fontSize.p}px;
+        line-height : ${({theme}) => theme.fontSize.p * 1.5}px;
+        color       : ${({theme}) => theme.colors.black};
+        margin      : 30px 0;
     }
 `
+
+const Content = styled.div`
+    flex: 1;
+`
+
 const MonsterWrapper = styled.div`
-    display: flex;
-    flex-direction : row;
-    justify-content: space-between;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-between;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        flex-direction: column;
+        flex-direction  : column;
     }
 
     .roleInfo{
-        color: #044eb7;
-        font-size: .8rem;
-        flex: 0.8;
+        color   : ${({theme}) => theme.colors.main};
+        flex    : 1;
 
-        h3{
-            z-index: 1;
-            position: relative;
-            font-size: 1.2rem;
-            white-space: nowrap;
+        h4{
+            font-size       : ${({theme}) => theme.fontSize.h4}px;
+            white-space     : nowrap;
 
             span{
-                font-size: 2rem;
-            }
-
-            &::after{
-                content: "";
-                display: block;
-                background-color: #FFE200;
-                width: 4rem;
-                height: 1rem;
-                position: absolute;
-                bottom: -.2rem;
-                left: 0;
-                z-index: -1;
+                font-size   : ${({theme}) => theme.fontSize.h1}px;
             }
         }
 
+        p{
+            color : ${({theme}) => theme.colors.main};
+        }
+   
+
         td{
-            vertical-align :top;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: .5rem .5rem 0 0;
-            line-height: 1.5rem;
+            vertical-align  : top;
+            font-size       : ${({theme}) => theme.fontSize.p}px;
+            padding         : 10px 10px 0 0;
+            line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
 
             &.field{
-                width: 4rem;
+                width       : 80px;
             }
         }
     }
 
-    .raderChartWrapper{
-        text-align: center;
+    .raderChartContainer{
+        text-align          : center;
     }
 `

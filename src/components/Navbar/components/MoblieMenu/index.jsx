@@ -13,17 +13,18 @@ export default class MoblieMenu extends Component {
 
     render() {
         const {HideMoblieMenu} = this.props
+        const {navBarItems} = data;
         return (
             <MoblieMenuWrapper>
                 <div className = "header">
                     <img src        = {`${process.env.PUBLIC_URL}/asset/logoBlue.png`}
-                        onClick    = {this.ItemClick.bind(this , "index")}/>
+                         onClick    = {this.ItemClick.bind(this , "index")}/>
                     <img src        = {`${process.env.PUBLIC_URL}/asset/back.png`} 
-                        className  = "back" 
-                        onClick    = {HideMoblieMenu}/>
+                         className  = "back" 
+                         onClick    = {HideMoblieMenu}/>
                 </div>
                 <ul>
-                    {data.navBarItem.map(info => 
+                    {navBarItems.map(info => 
                         <li onClick = {this.ItemClick.bind(this , info.src)}
                             key     = {uuidv4()}>
                             {info.chinese.replace(/\n/g , "")}<br/>
@@ -67,6 +68,7 @@ const MoblieMenuWrapper = styled.div`
             width       : 16%;
             min-width   : 250px;
             align-self  : center;
+            cursor      : pointer;
 
             &.back{
                 width       : 40px;
@@ -82,13 +84,14 @@ const MoblieMenuWrapper = styled.div`
         list-style-type     : none;
 
         li{
-            text-align      : right;
             margin-right    : ${({theme}) => theme.page.bellow980.padding + 40}px;
-            padding         : 1rem 0;
             font-size       : ${({theme}) => theme.fontSize.bellow980.menuTitle}px;
             color           : ${({theme}) => theme.colors.main};
+            text-align      : right;
+            padding         : 1rem 0;
             white-space     : normal;
             letter-spacing  : 2px;
+            cursor          : pointer;
 
             span{
                 font-size   : ${({theme}) => theme.fontSize.bellow980.menuSubTitle}px;

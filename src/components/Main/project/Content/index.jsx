@@ -3,8 +3,18 @@ import Data from '../../../../data.json';
 import styled , {keyframes} from 'styled-components';
 import Member from './Member'
 import { v4 as uuidv4 } from "uuid"
+import {Cancel , IframeContainer} from '../../../../theme/templete'
 
 export default class Content extends Component {
+
+    getMemberFlexWidth = (length , i) => {
+        if(window.innerWidth > 980){
+            return length > 7 || length < 5 ? 20 : (100 / length);
+        }else{
+            return 33.3333;
+        }
+        
+    }
     
     render() {
         const {project} = Data;
@@ -13,38 +23,45 @@ export default class Content extends Component {
             <ProjectContentWrapper>
                 <Cancel onClick = {close}/>
                 <ProjectContent>
-                    <ProjectTitle>
-                        <h1>{project[index].Title}</h1>
-                        <h2>{project[index].Tag}</h2>
-                    </ProjectTitle>
+                    <h1>{project[index].Title}</h1>
+                    <h3>{project[index].Tag}</h3>
                     <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img1.jpg`} className="master"/>
                     <ProjectIntro>
                         <div className="left">
                             <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
                             <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
-                            <h3>指導老師</h3>
-                            <h4>{project[index].Teacher.join("、")}</h4>
+                            <ProjectTeacher device = {"laptop"}>
+                                <h5>指導老師</h5>
+                                <h5>{project[index].Teacher.join("、")}</h5>
+                            </ProjectTeacher>
                         </div>
                         <div className="right">
-                            <h3>設計理念</h3>
+                            <h4>設計理念</h4>
                             <p>{project[index].Intro}</p>
-                            <h3>作品介紹</h3>
+                            <h4>作品介紹</h4>
                             <p>{project[index].Content}</p>
-                            <IframeContainer>
+                            <IframeContainer device = {"laptop"}>
                                 <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </IframeContainer>
+                            <ProjectTeacher device = {"mobile"}>
+                                <h5>指導老師</h5>
+                                <h5>{project[index].Teacher.join("、")}</h5>
+                            </ProjectTeacher>
                         </div>
                     </ProjectIntro>
-                    <h3>製作團隊</h3>
+                    <IframeContainer device = {"mobile"}>
+                        <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </IframeContainer>
+                    <h4>製作團隊</h4>
                     <ProjectMemberContainer>
                         {
                             project[index].Members.map((m , i , arr) => {
-                                let flexW = arr.length > 7 || arr.length < 5 ? 20 : (100 / arr.length);
                                 return (
-                                    <Member memberInfo   = {m}
+                                    <Member key          = {uuidv4()}
+                                            memberInfo   = {m}
                                             projectIndex = {index}
                                             i            = {i}
-                                            flexW        = {flexW} />
+                                            flexW        = {this.getMemberFlexWidth(arr.length , i)} />
                                 )
                             })
                         }
@@ -55,168 +72,165 @@ export default class Content extends Component {
     }
 }
 
-const Cancel = styled.div`
-
-    position: fixed;
-    width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    background-color: #000;
-    height: 4rem;
-    cursor: pointer;
-    z-index: 10;
-
-    &::before{
-        content: "";
-        width: 40px;
-        height: 3px;
-        display: block;
-        position: absolute;
-        top : 2rem;
-        right : 2rem;
-        background-color: #fff;
-        transform: rotate(45deg);
-    }
-    &::after{
-        content: "";
-        width: 40px;
-        height: 3px;
-        display: block;
-        position: absolute;
-        top : 2rem;
-        right : 2rem;
-        background-color: #fff;
-        transform: rotate(-45deg);
-    }
-`
-
 const contentShow = keyframes`
-
     from{
-        top : 30%;
-        opacity: 0;
+        top     : 30%;
+        opacity : 0;
     }
     to{
-        top : 0;
-        opacity: 1;
+        top     : 0;
+        opacity : 1;
     }
 `
 
-
 const ProjectContentWrapper = styled.div`
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    background-color: #000;
-    overflow: auto;
-    animation-name: ${contentShow};
-    animation-duration: .6s;
+    position            : fixed;
+    width               : 100%;
+    height              : 100%;
+    top                 : 0;
+    left                : 0;
+    z-index             : ${({theme}) => theme.zIndex.higher};
+    background-color    : ${({theme}) => theme.colors.black};
+    overflow            : auto;
+    animation-name      : ${contentShow};
+    animation-duration  : .6s;
 `
 
 
 const ProjectContent = styled.div`
-    max-width: 980px;
-    margin: auto;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    padding : 0 2rem;
+    max-width           : 980px;
+    margin              : auto;
+    margin-top          : 40px;
+    margin-bottom       : 40px;
+    padding             : 0 ${({theme}) => theme.page.padding}px;
 
-    h3{
-        color : #fff;
-        text-align: left;
-        margin-bottom: .8rem;
+    @media ${({theme}) => theme.mediaQueries.bellow1100} {
+        margin-top      : 80px;
     }
 
-    .master{
-        width: 100%;
+    h1{
+        font-size       : ${({theme}) => theme.fontSize.h1}px;
+        color           : ${({theme}) => theme.colors.white};
+        margin-bottom   : 20px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h1}px;
+        }
+    }
+
+    h3{
+        font-size       : ${({theme}) => theme.fontSize.h3}px;
+        color           : ${({theme}) => theme.colors.white};
+        line-height     : ${({theme}) => theme.fontSize.h3}px;
+        margin-bottom   : 20px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h3}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h3 * 1.5}px;
+        }
+    }
+
+    h4{
+        font-size       : ${({theme}) => theme.fontSize.h4}px;
+        color           : ${({theme}) => theme.colors.white};
+        padding-bottom  : .8rem;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
+        }
+    }
+
+    h5{
+        font-size       : ${({theme}) => theme.fontSize.h5}px;
+        color           : ${({theme}) => theme.colors.white};
+        padding-bottom  : .8rem;
+
+
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.5}px;
+        }
+    }
+
+    p{
+        color           : ${({theme}) => theme.colors.white};
+        font-size       : ${({theme}) => theme.fontSize.p}px;
+        line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
+        margin-bottom   : 30px;
+        letter-spacing  : 1px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            font-size       : ${({theme}) => theme.fontSize.bellow980.p}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.p * 1.5}px;
+        }
+    }
+
+    img{
+        width           : 100%;
+        margin-bottom   : 20px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            margin-bottom   : 10px;
+        }
     }
 ` 
 
-const ProjectTitle = styled.div`
-
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-
-    h1{
-        font-size: 2rem;
-        color : #fff;
-        margin : 0;
-        line-height: 2.5rem;
-    }
-
-    h2{
-        font-size: 1.5rem;
-        color : #fff;
-        margin : 0;
-        line-height: 2rem;
-    }
-`
-
 const ProjectIntro = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
+    display             : flex;
+    align-content       : flex-start;
+    margin              : 1rem 0 2rem;
 
     .left{
-        display: flex;
-        flex-direction: column;
-        flex: 2;
-
-        img{
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        h3{
-            border-bottom: #fff solid 1px;
-            text-align: center;
-            padding-bottom: .8rem;
-        }
-
-        h4{
-            color : #fff;
-            margin : 0;
-            text-align: center;
-        }
+        display         : flex;
+        flex-direction  : column;
+        flex            : 1;
     }
-    .right{
-        flex: 5;
-        margin: 0 0 0 2rem;
-        position: relative;
 
-        p{
-            color: #fff;
-            flex: 2;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            font-size: .8rem;
-            line-height: 1.3rem;
-        }
+    .right{
+        flex            : 2.5;
+        margin-left     : 40px;
+        position        : relative;
     }
 `
 
-const IframeContainer = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 0;
-    bottom: 0;
-    padding-bottom: 56.25%;
+const ProjectTeacher = styled.div`
+    display         : ${({device}) => (device == (window.innerWidth > 980 ? "laptop" : "mobile") ? "flex" : "none")};
+    flex-direction  : column;
 
-    iframe{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        flex-direction  : row;
+        justify-content : flex-end;
+    }
+
+    h5{
+        border-bottom   : solid 1px ${({theme}) => theme.colors.white};
+        text-align      : center;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            border-bottom  : none;
+            border-right   : solid 1px ${({theme}) => theme.colors.white};
+            padding         : 0 8px;
+        }
+
+        &:last-of-type{
+            padding-top     : 16px;
+            border-bottom   : none;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                border-right   : none;
+                padding : 0 8px;
+            }
+        }
     }
 `
 
 const ProjectMemberContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 2rem;
+    display     : flex;
+    flex-wrap   : wrap;
+    margin-top  : 1rem;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        margin-top  : 0;
+    }
 `
