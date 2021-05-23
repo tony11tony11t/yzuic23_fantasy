@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import SubnavBar from '../../SubnavBar'
+import MobileSubnavBar from '../../MobileSubnavBar'
 import ProductContent from './ProductContent'
 import FacebookContent from './FacebookContent'
 import data from '../../../data.json'
+import {Wrapper} from '../../../theme/templete'
 
 export default class WebResult extends Component {
     state = {
@@ -15,22 +16,19 @@ export default class WebResult extends Component {
 
     render() {
         const {page} = this.state;
+        const {resultSubNavBarItems} = data;
         return (
-            <ResultWrapper>
-                <SubnavBar data         = {data.resultSubNavBarItems}
+            <Wrapper>
+                <SubnavBar data         = {resultSubNavBarItems}
                            changePage   = {this.changePage}
                            width        = {40}/>
+                <MobileSubnavBar  data         = {resultSubNavBarItems} 
+                                  changePage   = {this.changePage}/>
                 {page === "product" ? <ProductContent /> : <FacebookContent />}
-            </ResultWrapper>
+            </Wrapper>
         )
     }
 }
 
-const ResultWrapper = styled.div`
-    margin-top      : 1.5rem;
-    display         : flex;
-    flex-direction  : column;
-
-`
 
 

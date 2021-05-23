@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import SubnavBar from '../../SubnavBar'
+import MobileSubnavBar from '../../MobileSubnavBar'
 import styled from 'styled-components'
 import Role from './Role'
 import RaderChart from '../../RaderChart'
 import data from '../../../data.json';
 import { v4 as uuidv4 } from "uuid"
+import {Wrapper} from '../../../theme/templete'
 
 export default class WebIndex extends Component {
     state = {
@@ -42,9 +44,9 @@ export default class WebIndex extends Component {
         return (
             <MonsterWrapper>
                 <div className="roleInfo">
-                    <h4>
+                    <h1>
                         <span>{ChName}</span>&nbsp;{EnName}
-                    </h4>
+                    </h1>
                     <p>{Intro}</p>
                     <table>
                         <tbody>
@@ -70,27 +72,22 @@ export default class WebIndex extends Component {
         const {page} = this.state;
         const {storySubNavBarItems} = data;
         return (
-            <StoryWrapper>
+            <Wrapper>
                 <SubnavBar  data         = {storySubNavBarItems} 
                             changePage   = {this.changePage}
                             width        = {65}/>
+                <MobileSubnavBar  data         = {storySubNavBarItems} 
+                                  changePage   = {this.changePage}/>
                 <StoryContainer ref = { this.contentRef } >
                     <Role src = {page} bg = {page !== "theme"}/>
                     <Content>
                         {page === "theme" ? this.getContent() : this.getMonster()}
                     </Content>
                 </StoryContainer>
-            </StoryWrapper>
+            </Wrapper>
         )
     }
 }
-
-const StoryWrapper = styled.div`
-    display         : flex;
-    flex-direction  : column;
-    position        : relative;
-    margin-top      : 30px;
-`
 
 const StoryContainer = styled.div`
     display         : flex;
@@ -102,50 +99,42 @@ const StoryContainer = styled.div`
         flex-direction  : column;
     }
 
+    h1{
+        color         : ${({theme}) => theme.colors.main};
+        font-weight   : 500;
+    }
+
     h4{
-        font-size   : ${({theme}) => theme.fontSize.h4}px;
-        color       : ${({theme}) => theme.colors.main};
-        font-weight : 600;
+        color         : ${({theme}) => theme.colors.main};
     }
 
     p{
-        font-size   : ${({theme}) => theme.fontSize.p}px;
-        line-height : ${({theme}) => theme.fontSize.p * 1.5}px;
         color       : ${({theme}) => theme.colors.black};
         margin      : 30px 0;
     }
 `
 
 const Content = styled.div`
-    flex: 1;
+    flex    : 1;
 `
 
 const MonsterWrapper = styled.div`
-    display         : flex;
-    flex-direction  : row;
-    justify-content : space-between;
-
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        flex-direction  : column;
-    }
+    position    : relative;
+    height      : 100%;
 
     .roleInfo{
         color   : ${({theme}) => theme.colors.main};
-        flex    : 1;
-
-        h4{
-            font-size       : ${({theme}) => theme.fontSize.h4}px;
-            white-space     : nowrap;
-
-            span{
-                font-size   : ${({theme}) => theme.fontSize.h1}px;
-            }
-        }
+        height  : 100%;
+        
 
         p{
-            color : ${({theme}) => theme.colors.main};
+            color           : ${({theme}) => theme.colors.main};
+            padding-right   : 50%;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                padding-right   : 0;
+            }
         }
-   
 
         td{
             vertical-align  : top;
@@ -156,10 +145,26 @@ const MonsterWrapper = styled.div`
             &.field{
                 width       : 80px;
             }
+
+            &:last-child{
+                padding-right : 50%; 
+
+                @media ${({theme}) => theme.mediaQueries.bellow980} {
+                    padding-right   : 0;
+                }   
+            }
         }
+        
     }
 
     .raderChartContainer{
-        text-align          : center;
+        position    : absolute;
+        top         : 0;
+        right       : 0;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            position    : relative;
+            text-align: center;
+        }
     }
 `

@@ -1,29 +1,21 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {IframeContainer} from '../../../theme/templete'
+import {IframeContainer , Wrapper} from '../../../theme/templete'
 
 export default class WebRecord extends Component {
     render() {
         return (
-            <RecordWrapper>
+            <Wrapper max = {1280}>
                 <IframeContainer>
                     <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </IframeContainer>
                 <RecordPhotoContainer>
                     {[...Array(31)].map((_ , i) => <img src={`${process.env.PUBLIC_URL}/asset/record/record (${i + 1}).jpg`} />)}
                 </RecordPhotoContainer>
-            </RecordWrapper>
+            </Wrapper>
         )
     }
 }
-
-const RecordWrapper = styled.div`
-    max-width   : 1280px;
-    margin      : auto;
-    position    : relative;
-    margin-top  : 60px;
-
-`
 
 const RecordPhotoContainer = styled.div`
 

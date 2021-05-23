@@ -85,16 +85,18 @@ const MoblieMenuWrapper = styled.div`
 
         li{
             margin-right    : ${({theme}) => theme.page.bellow980.padding + 40}px;
-            font-size       : ${({theme}) => theme.fontSize.bellow980.menuTitle}px;
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h3}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h3 * 1.4}px;
             color           : ${({theme}) => theme.colors.main};
             text-align      : right;
-            padding         : 1rem 0;
+            padding         : 20px 0;
             white-space     : normal;
             letter-spacing  : 2px;
             cursor          : pointer;
 
             span{
-                font-size   : ${({theme}) => theme.fontSize.bellow980.menuSubTitle}px;
+                font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
+                letter-spacing  : 1px;
             }
         }
     }

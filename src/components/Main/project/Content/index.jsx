@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Data from '../../../../data.json';
-import styled , {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import Member from './Member'
 import { v4 as uuidv4 } from "uuid"
-import {Cancel , IframeContainer} from '../../../../theme/templete'
+import {Cancel , IframeContainer , FixedContentWrapper} from '../../../../theme/templete'
 
 export default class Content extends Component {
 
@@ -20,7 +20,7 @@ export default class Content extends Component {
         const {project} = Data;
         const {close , index} = this.props;
         return (
-            <ProjectContentWrapper>
+            <FixedContentWrapper>
                 <Cancel onClick = {close}/>
                 <ProjectContent>
                     <h1>{project[index].Title}</h1>
@@ -67,35 +67,10 @@ export default class Content extends Component {
                         }
                     </ProjectMemberContainer>
                 </ProjectContent>
-            </ProjectContentWrapper> 
+            </FixedContentWrapper> 
         )
     }
 }
-
-const contentShow = keyframes`
-    from{
-        top     : 30%;
-        opacity : 0;
-    }
-    to{
-        top     : 0;
-        opacity : 1;
-    }
-`
-
-const ProjectContentWrapper = styled.div`
-    position            : fixed;
-    width               : 100%;
-    height              : 100%;
-    top                 : 0;
-    left                : 0;
-    z-index             : ${({theme}) => theme.zIndex.higher};
-    background-color    : ${({theme}) => theme.colors.black};
-    overflow            : auto;
-    animation-name      : ${contentShow};
-    animation-duration  : .6s;
-`
-
 
 const ProjectContent = styled.div`
     max-width           : 980px;
@@ -108,62 +83,12 @@ const ProjectContent = styled.div`
         margin-top      : 80px;
     }
 
-    h1{
-        font-size       : ${({theme}) => theme.fontSize.h1}px;
-        color           : ${({theme}) => theme.colors.white};
-        margin-bottom   : 20px;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h1}px;
-        }
-    }
-
-    h3{
-        font-size       : ${({theme}) => theme.fontSize.h3}px;
-        color           : ${({theme}) => theme.colors.white};
-        line-height     : ${({theme}) => theme.fontSize.h3}px;
-        margin-bottom   : 20px;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h3}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h3 * 1.5}px;
-        }
-    }
-
-    h4{
-        font-size       : ${({theme}) => theme.fontSize.h4}px;
-        color           : ${({theme}) => theme.colors.white};
-        padding-bottom  : .8rem;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
-        }
-    }
-
-    h5{
-        font-size       : ${({theme}) => theme.fontSize.h5}px;
-        color           : ${({theme}) => theme.colors.white};
-        padding-bottom  : .8rem;
-
-
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.5}px;
-        }
+    h1 , h3 , h4 , h5{   
+        padding-bottom  : 16px;
     }
 
     p{
-        color           : ${({theme}) => theme.colors.white};
-        font-size       : ${({theme}) => theme.fontSize.p}px;
-        line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
         margin-bottom   : 30px;
-        letter-spacing  : 1px;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.p}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.p * 1.5}px;
-        }
     }
 
     img{

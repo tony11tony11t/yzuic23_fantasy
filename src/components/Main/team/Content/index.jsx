@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import data from '../../../../data.json'
 import styled , {keyframes} from 'styled-components'
-import {Cancel} from '../../../../theme/templete'
+import {Cancel , FixedContentWrapper} from '../../../../theme/templete'
 
 export default class Content extends Component {
     
@@ -9,7 +9,7 @@ export default class Content extends Component {
         const {close , label} = this.props;
         const info = data.team[label];
         return (
-            <TeamWrapper>
+            <FixedContentWrapper>
                 <Cancel onClick = {close}/>
                 <TeamContainer>
                     <img src={`${process.env.PUBLIC_URL}/asset/team_photo_${label}.jpg`}/>
@@ -20,34 +20,10 @@ export default class Content extends Component {
                         <p className="member">{info.Member}</p>
                     </TeamIntro>
                 </TeamContainer>
-            </TeamWrapper> 
+            </FixedContentWrapper> 
         )
     }
 }
-
-const contentShow = keyframes`
-    from{
-        top : 30%;
-        opacity: 0;
-    }
-    to{
-        top : 0;
-        opacity: 1;
-    }
-`
-
-const TeamWrapper = styled.div`
-    position            : fixed;
-    width               : 100%;
-    height              : 100%;
-    top                 : 0;
-    left                : 0;
-    z-index             : ${({theme}) => theme.zIndex.higher};
-    background-color    : ${({theme}) => theme.colors.black};
-    overflow            : auto;
-    animation-name      : ${contentShow};
-    animation-duration  : .6s;
-`
 
 const TeamContainer = styled.div`
     max-width           : 1500px;
@@ -98,37 +74,24 @@ const TeamIntro = styled.div`
     }
 
     h1{
-        font-size       : ${({theme}) => theme.fontSize.h1}px;
-        color           : ${({theme}) => theme.colors.white};
         margin-bottom   : 40px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size    : ${({theme}) => theme.fontSize.bellow980.h1}px;
             margin-top   : 20px;
         }
     }
 
     h4{
-        font-size       : ${({theme}) => theme.fontSize.h4}px;
-        color           : ${({theme}) => theme.colors.white};
-        line-height     : ${({theme}) => theme.fontSize. h4 * 1.2}px;
         margin-bottom   : 100px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
             margin-bottom   : 50px;
         }
     }
 
     p{
-        font-size       : ${({theme}) => theme.fontSize.p}px;
-        color           : ${({theme}) => theme.colors.white};
-        line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
-        letter-spacing  : 1px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.p}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.p * 1.5}px;
             margin-bottom   : 2rem;
             text-align      : center;
         }

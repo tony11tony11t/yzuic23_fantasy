@@ -5,8 +5,9 @@ export default class Item extends Component {
     render() {
         const {src , chinese , english , changePage} = this.props
         return (
-            <ItemContainer onClick={changePage.bind(this , src)}>
-                <img src={`${process.env.PUBLIC_URL}/asset/icon_${src}.png`} />
+            <ItemContainer>
+                <img src     = {`${process.env.PUBLIC_URL}/asset/icon_${src}.png`} 
+                     onClick = {changePage.bind(this , src)}/>
                 <p>{chinese}<br/><span>{english}</span></p>
             </ItemContainer>
         )
@@ -35,8 +36,6 @@ const ItemContainer = styled.div`
     p{
         background-color    : ${({theme}) => theme.colors.white};
         color               : ${({theme}) => theme.colors.main};
-        font-size           : ${({theme}) => theme.fontSize.subTitle}px;
-        line-height         : ${({theme}) => theme.fontSize.subTitle * 1.2}px;
         z-index             : ${({theme}) => theme.zIndex.lowest};
         letter-spacing      : 2px;
         border              : 2px solid ${({theme}) => theme.colors.main};
@@ -52,8 +51,10 @@ const ItemContainer = styled.div`
         opacity             : 0;
 
         span{
-            font-size       : ${({theme}) => theme.fontSize.subTitle * 0.5}px;
+            display         : block;
+            font-size       : ${({theme}) => theme.fontSize.p * 0.5}px;
             letter-spacing  : 0;
+            line-height     : ${({theme}) => theme.fontSize.p}px;
         }
     }
 

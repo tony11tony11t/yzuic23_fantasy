@@ -185,29 +185,25 @@ const HistoryContainerLeft = styled.div`
     }
 
     h2{
-        font-size       : ${({theme}) => theme.fontSize.h2}px;
         color           : ${({theme}) => theme.colors.main};
-        line-height     : ${({theme}) => theme.fontSize.h2 * 1.2}px;
         font-weight     : 500;
         margin          : 0 0 0 20px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size   : ${({theme}) => theme.fontSize.bellow980.h4}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h4 * 1.2}px;
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h4 * 1.4}px;
             margin      : 0
         }
     }
 
     h3{
-        font-size       : ${({theme}) => theme.fontSize.h3}px;
         color           : ${({theme}) => theme.colors.main};
-        line-height     : ${({theme}) => theme.fontSize.h3 * 1.3}px;
         margin-bottom   : 20px;
         font-weight     : 500;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.3}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.4}px;
         }
 
         span{

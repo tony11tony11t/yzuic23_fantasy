@@ -50,10 +50,7 @@ const ProductContainer = styled.div`
     }
 
     h5{
-        font-size       : ${({theme}) => theme.fontSize.h5}px;
-        color           : ${({theme}) => theme.colors.white};
         background-color: ${({theme}) => theme.colors.main};
-        line-height     : ${({theme}) => theme.fontSize.h5}px;
         padding         : 10px 20px;
         position        : absolute;
         top             : 0;
@@ -61,8 +58,6 @@ const ProductContainer = styled.div`
         border-radius   : 16px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.5}px;
             padding         : 6px 16px;
             border-radius   : 12px;
         }

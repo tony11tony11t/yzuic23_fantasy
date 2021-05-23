@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled , {keyframes} from 'styled-components'
 
 const getNowDevice = window.innerWidth > 980 ? "laptop" : "mobile";
 
@@ -50,4 +50,40 @@ export const IframeContainer = styled.div`
         width       : 100%;
         height      : 100%;
     }
+`
+
+export const Wrapper = styled.div`
+    max-width       : ${({max}) => max ? `${max}px` : null};
+    margin          : auto;
+    display         : flex;
+    flex-direction  : column;
+    padding         : ${({theme}) => theme.page.padding}px 0;
+    
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        padding     : ${({theme}) => theme.page.bellow980.padding}px 0;
+    }
+`
+
+const contentShow = keyframes`
+    from{
+        top     : 30%;
+        opacity : 0;
+    }
+    to{
+        top     : 0;
+        opacity : 1;
+    }
+`
+
+export const FixedContentWrapper = styled.div`
+    position            : fixed;
+    width               : 100%;
+    height              : 100%;
+    top                 : 0;
+    left                : 0;
+    z-index             : ${({theme}) => theme.zIndex.higher};
+    background-color    : ${({theme}) => theme.colors.black};
+    overflow            : auto;
+    animation-name      : ${contentShow};
+    animation-duration  : .6s;
 `

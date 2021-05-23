@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import SubnavBar from '../../SubnavBar'
+import MobileSubnavBar from '../../MobileSubnavBar'
 import Works from './Works'
 import Content from './Content'
 import data from '../../../data.json';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from "uuid"
+import {Wrapper} from '../../../theme/templete'
 
 export default class WebProject extends Component {
     state = {
@@ -49,10 +51,12 @@ export default class WebProject extends Component {
         const {projectSubNavBarItems} = data;
 
         return (
-            <ProjectWrapper>
+            <Wrapper>
                 <SubnavBar  data        = {projectSubNavBarItems} 
                             changePage  = {this.changePage}
                             width       = {62}/>
+                <MobileSubnavBar  data         = {projectSubNavBarItems} 
+                                  changePage   = {this.changePage}/>
 
                 <ProjectContainer>
                     {project.map((obj , i) => obj ? 
@@ -63,16 +67,10 @@ export default class WebProject extends Component {
                 </ProjectContainer>
 
                 {contentVisible ? <Content close = {this.hideContent} index = {contentIndex}/> : null}
-            </ProjectWrapper>
+            </Wrapper>
         )
     }
 }
-
-const ProjectWrapper = styled.div`
-    margin-top      : 30px;
-    display         : flex;
-    flex-direction  : column;
-`
 
 const ProjectContainer = styled.div`
     width               : 95%;

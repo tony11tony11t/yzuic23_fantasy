@@ -53,7 +53,7 @@ const RoleContainer = styled.div`
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             width                   : 100%;
-            min-width               : none;
+            min-width               : 100%;
         }
     }
 
@@ -67,7 +67,7 @@ const RoleContainer = styled.div`
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             width                   : 100%;
-            min-width               : none;
+            min-width               : 100%;
             margin-bottom           : 20px;
         }
     }
