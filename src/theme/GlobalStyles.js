@@ -58,6 +58,10 @@ const GlobalStyle = createGlobalStyle`
         letter-spacing  : 1px;
     }
 
+    a{
+        text-decoration: none;
+    }
+
     @media ${({theme}) => theme.mediaQueries.bellow980} {
         h1{
             font-size   : ${({theme}) => theme.fontSize.bellow980.h1}px;
