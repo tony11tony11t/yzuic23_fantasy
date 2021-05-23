@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import SubNavBar from '../../SubNavBar'
-import ProductContent from './ProductContent'
-import FacebookContent from './FacebookContent'
-import data from '../../../data.json'
-import {Wrapper} from '../../../theme/templete'
+import SubNavBar            from '../../SubNavBar'
+import ProductContent       from './ProductContent'
+import FacebookContent      from './FacebookContent'
+import data                 from '../../../data.json'
+import {Wrapper}            from '../../../theme/templete'
 
 export default class WebResult extends Component {
     state = {
@@ -11,7 +11,6 @@ export default class WebResult extends Component {
     }
 
     changePage = page => this.setState({page})
-
 
     render() {
         const {page} = this.state;

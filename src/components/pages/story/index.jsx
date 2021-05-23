@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import SubNavBar from '../../SubNavBar'
-import styled from 'styled-components'
-import Role from './Role'
-import RaderChart from '../../RaderChart'
-import data from '../../../data.json';
-import { v4 as uuidv4 } from "uuid"
-import {Wrapper} from '../../../theme/templete'
+import React, { Component }     from 'react'
+import { v4 as uuidv4 }         from "uuid"
+import Role                     from './Role'
+import SubNavBar                from '../../SubNavBar'
+import RaderChart               from '../../RaderChart'
+import data                     from '../../../data.json';
+import {Wrapper}                from '../../../theme/templete'
+import {StoryContainer , 
+        MonsterWrapper}         from './index.style'
 
 export default class WebIndex extends Component {
     state = {
@@ -77,91 +78,11 @@ export default class WebIndex extends Component {
                             width        = {65}/>
                 <StoryContainer ref = { this.contentRef } >
                     <Role src = {page} bg = {page !== "theme"}/>
-                    <Content>
+                    <div className ="content">
                         {page === "theme" ? this.getContent() : this.getMonster()}
-                    </Content>
+                    </div>
                 </StoryContainer>
             </Wrapper>
         )
     }
 }
-
-const StoryContainer = styled.div`
-    display         : flex;
-    flex-direction  : row;
-    flex            : 1;
-    margin-top      : 20px;
-
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        flex-direction  : column;
-    }
-
-    h1{
-        color         : ${({theme}) => theme.colors.main};
-        font-weight   : 500;
-    }
-
-    h4{
-        color         : ${({theme}) => theme.colors.main};
-    }
-
-    p{
-        color       : ${({theme}) => theme.colors.black};
-        margin      : 30px 0;
-    }
-`
-
-const Content = styled.div`
-    flex    : 1;
-`
-
-const MonsterWrapper = styled.div`
-    position    : relative;
-    height      : 100%;
-
-    .roleInfo{
-        color   : ${({theme}) => theme.colors.main};
-        height  : 100%;
-        
-
-        p{
-            color           : ${({theme}) => theme.colors.main};
-            padding-right   : 50%;
-
-            @media ${({theme}) => theme.mediaQueries.bellow980} {
-                padding-right   : 0;
-            }
-        }
-
-        td{
-            vertical-align  : top;
-            font-size       : ${({theme}) => theme.fontSize.p}px;
-            padding         : 10px 10px 0 0;
-            line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
-
-            &.field{
-                width       : 80px;
-            }
- 
-            &:last-child{
-                padding-right : 50%; 
-
-                @media ${({theme}) => theme.mediaQueries.bellow980} {
-                    padding-right   : 0;
-                }   
-            }
-        }
-        
-    }
-
-    .raderChartContainer{
-        position    : absolute;
-        top         : 0;
-        right       : 0;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            position    : relative;
-            text-align: center;
-        }
-    }
-`
