@@ -27,7 +27,7 @@ export const SubNavbarContainer = styled.ul`
 
     li{
         color           : ${({theme}) => theme.colors.main};
-        font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
+        font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
         padding         : 10px 0;
         text-align      : center;
         font-weight     : 500;

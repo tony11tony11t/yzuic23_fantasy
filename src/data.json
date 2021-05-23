@@ -846,19 +846,143 @@
     "history" : [{
         "date" : "01.11",
         "content" : "大家一起投票去！",
-        "src" : "facebook (1).jpg"
+        "src" : "facebook (1).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2725998797494396"
     },{
-        "date" : "01.12",
-        "content" : "大家一起投票去！",
-        "src" : "facebook (2).jpg"
+        "date" : "01.15",
+        "content" : "大頭貼宣傳",
+        "src" : "facebook (2).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2735327013228241"
     },{
-        "date" : "01.13",
-        "content" : "大家一起投票去！",
-        "src" : "facebook (3).jpg"
+        "date" : "01.17",
+        "content" : "警示牌",
+        "src" : "facebook (3).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2740279042733038"
     },{
-        "date" : "01.14",
-        "content" : "大家一起投票去！",
-        "src" : "facebook (4).jpg"
+        "date" : "01.21",
+        "content" : "角色介紹-1(Rookie)",
+        "src" : "facebook (4).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2748281098599499"
+    },{
+        "date" : "01.22",
+        "content" : "角色介紹-2(Chubby)",
+        "src" : "facebook (5).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2749729478454661"
+    },{
+        "date" : "01.23",
+        "content" : "角色介紹-3(BoomBoom)",
+        "src" : "facebook (6).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2751563454937930"
+    },{
+        "date" : "01.24",
+        "content" : "角色介紹-4(Fantasy)",
+        "src" : "facebook (7).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2753717754722500"
+    },{
+        "date" : "01.25",
+        "content" : "新年快樂",
+        "src" : "facebook (8).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2756266324467643"
+    },{
+        "date" : "01.26",
+        "content" : "類組介紹",
+        "src" : "facebook (9).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2758285157599093"
+    },{
+        "date" : "01.27",
+        "content" : "遊戲組介紹",
+        "src" : "facebook (10).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2760287234065552"
+    },{
+        "date" : "01.28",
+        "content" : "互動組介紹",
+        "src" : "facebook (11).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2762303287197280"
+    },{
+        "date" : "01.29",
+        "content" : "專題研究組介紹",
+        "src" : "facebook (12).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2764391413655134"
+    },{
+        "date" : "01.30",
+        "content" : "影視組介紹",
+        "src" : "facebook (13).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2765879003506375"
+    },{
+        "date" : "02.01",
+        "content" : "肺炎防治",
+        "src" : "facebook (14).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2770460493048226"
+    },{
+        "date" : "02.08",
+        "content" : "元宵節",
+        "src" : "facebook (15).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2784945421599733"
+    },{
+        "date" : "02.27",
+        "content" : "網站預告",
+        "src" : "facebook (16).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2824885787605696"
+    },{
+        "date" : "03.13",
+        "content" : "募資上線預告",
+        "src" : "facebook (17).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2859224280838513"
+    },{
+        "date" : "03.21",
+        "content" : "展覽取消",
+        "src" : "facebook (18).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2875539112540363"
+    },{
+        "date" : "04.08",
+        "content" : "周邊第一發",
+        "src" : "facebook (19).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2918147898279484"
+    },{
+        "date" : "04.09",
+        "content" : "周邊第二發",
+        "src" : "facebook (20).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2918147094946231"
+    },{
+        "date" : "04.10",
+        "content" : "周邊第三發",
+        "src" : "facebook (21).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2922917791135828"
+    },{
+        "date" : "04.11",
+        "content" : "展覽更新公告",
+        "src" : "facebook (22).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2923398694421071"
+    },{
+        "date" : "04.23",
+        "content" : "入場方式",
+        "src" : "facebook (28).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2949104638517143"
+    },{
+        "date" : "04.24",
+        "content" : "倒數5天",
+        "src" : "facebook (27).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2951493148278292"
+    },{
+        "date" : "04.25",
+        "content" : "倒數4天",
+        "src" : "facebook (26).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2953157314778542"
+    },{
+        "date" : "04.26",
+        "content" : "倒數3天",
+        "src" : "facebook (25).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2957526344341639"
+    },{
+        "date" : "04.27",
+        "content" : "倒數2天",
+        "src" : "facebook (24).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2958869824207291"
+    },{
+        "date" : "04.28",
+        "content" : "倒數1天",
+        "src" : "facebook (23).jpg",
+        "url" : "https://www.facebook.com/yzuic24th/photos/2961338807293726"
     }]
 
 

@@ -7,7 +7,7 @@ export default class Item extends Component {
         const {src , chinese , english} = this.props
         return (
             <ItemContainer>
-                <Link to = {`/${src}`}>
+                <Link to = {`${process.env.PUBLIC_URL}/${src}`}>
                     <img src = {`${process.env.PUBLIC_URL}/asset/icon_${src}.png`} />
                 </Link>
                 <p>{chinese}<br/><span>{english}</span></p>

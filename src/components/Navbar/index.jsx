@@ -26,7 +26,7 @@ export default class Navbar extends Component {
         return (
             <>
                 <NavbarWrapper>
-                    <Link to = "/">
+                    <Link to = {`${process.env.PUBLIC_URL}/`}>
                         <img src = {`${process.env.PUBLIC_URL}/asset/logo.png`}/>
                     </Link>
                     <NavbarCotainer>

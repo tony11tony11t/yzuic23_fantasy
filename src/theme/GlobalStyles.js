@@ -24,7 +24,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     h1,h2,h3,h4,h5,p{
-        color       : ${({theme}) => theme.colors.white};
+        color           : ${({theme}) => theme.colors.white};
+        letter-spacing  : 1.5px;
     }
 
     h1{
@@ -55,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
     p{
         font-size       : ${({theme}) => theme.fontSize.p}px;
         line-height     : ${({theme}) => theme.fontSize.p * 1.4}px;
-        letter-spacing  : 1px;
+        letter-spacing  : 2px;
     }
 
     a{

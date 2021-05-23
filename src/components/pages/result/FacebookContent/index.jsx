@@ -35,11 +35,13 @@ export default class FacebookContent extends Component {
                                         (i % 2 == 1 && version == "com")? (
                                             <HistoryContainerLeft>
                                                 <div className = "ImgContainer">
-                                                    <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
+                                                    <a href = {d.url}>
+                                                        <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
+                                                    </a>
                                                 </div>
                                                 <div>
                                                     <h3>2020<br/><span>{d.date}</span></h3>
-                                                    <h2>{d.content}</h2>
+                                                    <h3>{d.content}</h3>
                                                 </div>
                                             </HistoryContainerLeft>
                                         ) : null
@@ -51,10 +53,12 @@ export default class FacebookContent extends Component {
                                             <HistoryContainerRight>
                                                 <div>
                                                     <h3>2020<br/><span>{d.date}</span></h3>
-                                                    <h2>{d.content}</h2>
+                                                    <h3>{d.content}</h3>
                                                 </div>
                                                 <div className = "ImgContainer">
-                                                    <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
+                                                    <a href = {d.url}>
+                                                        <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
+                                                    </a>
                                                 </div>
                                             </HistoryContainerRight>
                                         ) : null

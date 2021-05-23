@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const TeamContainer = styled.div`
-    max-width           : 1500px;
+    max-width           : 980px;
     margin              : auto;
     margin-top          : 80px;
     margin-bottom       : 40px;
@@ -50,6 +50,7 @@ export const TeamIntro = styled.div`
 
     h1{
         margin-bottom   : 40px;
+        font-weight     : 500;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             margin-top   : 20px;

@@ -114,22 +114,10 @@ export const HistoryContainerLeft = styled.div`
         opacity             : 1;
     }
 
-    h2{
-        color           : ${({theme}) => theme.colors.main};
-        font-weight     : 500;
-        margin          : 0 0 0 20px;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h4 * 1.4}px;
-            margin      : 0
-        }
-    }
-
     h3{
         color           : ${({theme}) => theme.colors.main};
-        margin-bottom   : 20px;
         font-weight     : 500;
+        margin          : 0 0 20px 20px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
@@ -186,7 +174,7 @@ export const HistoryContainerRight = styled(HistoryContainerLeft)`
         }
     }
 
-    h2{
-        margin : 0 20px 0 0;
+    h3{
+        margin : 0 20px 20px 0;
     }
 `
