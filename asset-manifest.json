@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/yzuic23_fantasy/static/css/main.25818ec0.chunk.css",
-    "main.js": "/yzuic23_fantasy/static/js/main.6d64ca56.chunk.js",
-    "main.js.map": "/yzuic23_fantasy/static/js/main.6d64ca56.chunk.js.map",
+    "main.js": "/yzuic23_fantasy/static/js/main.f956bd55.chunk.js",
+    "main.js.map": "/yzuic23_fantasy/static/js/main.f956bd55.chunk.js.map",
     "runtime-main.js": "/yzuic23_fantasy/static/js/runtime-main.0a7e5f02.js",
     "runtime-main.js.map": "/yzuic23_fantasy/static/js/runtime-main.0a7e5f02.js.map",
-    "static/js/2.d7337279.chunk.js": "/yzuic23_fantasy/static/js/2.d7337279.chunk.js",
-    "static/js/2.d7337279.chunk.js.map": "/yzuic23_fantasy/static/js/2.d7337279.chunk.js.map",
+    "static/js/2.87615ce9.chunk.js": "/yzuic23_fantasy/static/js/2.87615ce9.chunk.js",
+    "static/js/2.87615ce9.chunk.js.map": "/yzuic23_fantasy/static/js/2.87615ce9.chunk.js.map",
     "index.html": "/yzuic23_fantasy/index.html",
     "static/css/main.25818ec0.chunk.css.map": "/yzuic23_fantasy/static/css/main.25818ec0.chunk.css.map",
-    "static/js/2.d7337279.chunk.js.LICENSE.txt": "/yzuic23_fantasy/static/js/2.d7337279.chunk.js.LICENSE.txt",
+    "static/js/2.87615ce9.chunk.js.LICENSE.txt": "/yzuic23_fantasy/static/js/2.87615ce9.chunk.js.LICENSE.txt",
     "static/media/TaipeiSansTCBeta-Bold.f4d8ffc7.woff": "/yzuic23_fantasy/static/media/TaipeiSansTCBeta-Bold.f4d8ffc7.woff",
     "static/media/TaipeiSansTCBeta-Light.7e81899d.woff": "/yzuic23_fantasy/static/media/TaipeiSansTCBeta-Light.7e81899d.woff",
     "static/media/TaipeiSansTCBeta-Regular.c0150b73.woff": "/yzuic23_fantasy/static/media/TaipeiSansTCBeta-Regular.c0150b73.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.0a7e5f02.js",
-    "static/js/2.d7337279.chunk.js",
+    "static/js/2.87615ce9.chunk.js",
     "static/css/main.25818ec0.chunk.css",
-    "static/js/main.6d64ca56.chunk.js"
+    "static/js/main.f956bd55.chunk.js"
   ]
 }
