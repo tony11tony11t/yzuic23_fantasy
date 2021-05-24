@@ -13,7 +13,7 @@ export default class ProductContent extends Component {
                     data.product.map((d , i) => {
                         return (
                             <ProductContainer length = {d.src.length} index = {i}>
-                                <h5>{d.name}</h5>
+                                <h4>{d.name}</h4>
                                 <ProductImgContainer length = {d.src.length}>
                                 {
                                     d.src.map(s => 

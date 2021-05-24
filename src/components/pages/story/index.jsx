@@ -16,22 +16,22 @@ export default class WebIndex extends Component {
     getContent = () => {
         return (
             <React.Fragment>
-                <h4>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</h4>
-                <p>
+                <h3>「萌芽、碰撞、成長、茁壯， 屬於我們的狂想正在進化。」</h3>
+                <h4>
                     「狂想」是什麼呢 ‧‧‧‧‧‧？<br/>
                     它是自由不受限的想像、跳脫框架的夢想。
-                </p>
-                <p>
+                </h4>
+                <h4>
                     初步入大學的我們，默默地種下對未來的想像，<br/>
                     將資傳系四年探索，化為四隻小怪獸的進化旅程，<br/>
                     從渺小的大一 — Rookie菜鳥獸，最終進化成真正的資傳人，大四 — Fantasy狂想獸。
-                </p>
-                <p>強調四年的成長，亦結合對科幻未來人的想像：
+                </h4>
+                <h4>強調四年的成長，亦結合對科幻未來人的想像：
                     <br/>「資傳人最後會進化成什麼模樣呢？」
-                </p>
-                <p>「狂想進化論」展現五顏六色的創意與想像，
+                </h4>
+                <h4>「狂想進化論」展現五顏六色的創意與想像，
                     <br/>一場屬於我們的狂想進化，未完待續 ‧‧‧‧‧‧！
-                </p>
+                </h4>
             </React.Fragment>
         )
     }
@@ -47,7 +47,7 @@ export default class WebIndex extends Component {
                     <h1>
                         <span>{ChName}</span>&nbsp;{EnName}
                     </h1>
-                    <p>{Intro}</p>
+                    <h3>{Intro}</h3>
                     <table>
                         <tbody>
                             {Info.map(obj => {

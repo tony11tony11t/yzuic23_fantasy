@@ -57,7 +57,7 @@
 
     "resultSubNavBarItems":[{
         "name"  : "product",
-        "label" : "周邊商品"
+        "label" : "展覽形象周邊"
     },{
         "name"  : "facebook",
         "label" : "回顧歷程"
@@ -67,7 +67,7 @@
         "rookie" : {
             "EnName": "Rookie",
             "ChName": "菜鳥獸",
-            "Intro": "小不點，紅奶嘴。滿身香菜味，最菜的那種",
+            "Intro": "小不點，紅奶嘴。\n滿身香菜味，最菜的那種",
             "Info" : [{
                 "field" : "年級",
                 "value" : "大學一年級"
@@ -101,7 +101,7 @@
         "chubby" : {
             "EnName": "Chubby",
             "ChName": "發胖獸",
-            "Intro": "小胖子，紅帽子，游泳圈。食量和肥肉等比例成長ing",
+            "Intro": "小胖子，紅帽子，游泳圈。\n食量和肥肉等比例成長ing",
             "Info" : [{
                 "field" : "年級",
                 "value" : "大學二年級"
@@ -135,7 +135,7 @@
         "boomboom" : {
             "EnName": "BoomBoom",
             "ChName": "蹦爆獸",
-            "Intro": "皮膚開始有一些白色花紋，是轉成最終型態前的準備狀態。小花花和樹葉必備時尚穿搭。",
+            "Intro": "皮膚開始有一些白色花紋，是轉成最終型態前的準備狀態。\n小花花和樹葉必備時尚穿搭。",
             "Info" : [{
                 "field" : "年級",
                 "value" : "大學三年級"

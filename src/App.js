@@ -33,7 +33,7 @@ class App extends Component {
     const {pathname} = this.props.location;
     if (pathname !== prevProps.location.pathname) {
         this.wrapper.current.scrollTop = 0;
-        this.setState({page : pathname.split("/")[2] });
+        this.setState({page : pathname.split("/")[1] });
     }
 }
 
@@ -47,13 +47,13 @@ class App extends Component {
             <ContainerWrapper ref   = {this.wrapper}
                               bgUrl = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}>
                 <Switch>
-                    <Route path={`${process.env.PUBLIC_URL}/index`}    component={WebIndex} />
-                    <Route path={`${process.env.PUBLIC_URL}/story`}    component={WebStory} />
-                    <Route path={`${process.env.PUBLIC_URL}/team`}     component={WebTeam} />
-                    <Route path={`${process.env.PUBLIC_URL}/project`}  component={WebProject} />
-                    <Route path={`${process.env.PUBLIC_URL}/record`}   component={WebRecord} />
-                    <Route path={`${process.env.PUBLIC_URL}/result`}   component={WebResult} />
-                    <Redirect to={`${process.env.PUBLIC_URL}/index`} />
+                    <Route path={`/index`}    component={WebIndex} />
+                    <Route path={`/story`}    component={WebStory} />
+                    <Route path={`/team`}     component={WebTeam} />
+                    <Route path={`/project`}  component={WebProject} />
+                    <Route path={`/record`}   component={WebRecord} />
+                    <Route path={`/result`}   component={WebResult} />
+                    <Redirect to={`/index`} />
                 </Switch>
             </ContainerWrapper>
         </AppWrapper>

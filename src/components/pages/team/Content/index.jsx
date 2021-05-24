@@ -17,9 +17,9 @@ export default class Content extends Component {
                     <img src={`${process.env.PUBLIC_URL}/asset/team_photo_${label}.jpg`}/>
                     <TeamIntro>
                         <h1>{info.Name}</h1>
-                        <h4>{info.Content}</h4>
-                        <p className="description">{info.MurMur}</p>
-                        <p className="member">{info.Member}</p>
+                        <h3 className="content">{info.Content}</h3>
+                        <h3 className="description">{info.MurMur}</h3>
+                        <h3 className="member">{info.Member}</h3>
                     </TeamIntro>
                 </TeamContainer>
             </FixedContentWrapper> 

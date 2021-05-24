@@ -41,7 +41,7 @@ export default class FacebookContent extends Component {
                                                 </div>
                                                 <div>
                                                     <h3>2020<br/><span>{d.date}</span></h3>
-                                                    <h3>{d.content}</h3>
+                                                    <h2>{d.content}</h2>
                                                 </div>
                                             </HistoryContainerLeft>
                                         ) : null
@@ -53,7 +53,7 @@ export default class FacebookContent extends Component {
                                             <HistoryContainerRight>
                                                 <div>
                                                     <h3>2020<br/><span>{d.date}</span></h3>
-                                                    <h3>{d.content}</h3>
+                                                    <h2>{d.content}</h2>
                                                 </div>
                                                 <div className = "ImgContainer">
                                                     <a href = {d.url}>

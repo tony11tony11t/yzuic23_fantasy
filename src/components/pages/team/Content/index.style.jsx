@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const TeamContainer = styled.div`
-    max-width           : 980px;
+    max-width           : 1100px;
     margin              : auto;
     margin-top          : 80px;
     margin-bottom       : 40px;
@@ -50,26 +50,19 @@ export const TeamIntro = styled.div`
 
     h1{
         margin-bottom   : 40px;
-        font-weight     : 500;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             margin-top   : 20px;
         }
     }
 
-    h4{
-        margin-bottom   : 100px;
+    h3{
+        &.content{
+            margin-bottom   : 100px;
 
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            margin-bottom   : 50px;
-        }
-    }
-
-    p{
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            margin-bottom   : 2rem;
-            text-align      : center;
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                margin-bottom   : 50px;
+            }
         }
 
         &.member{
@@ -83,6 +76,13 @@ export const TeamIntro = styled.div`
                 position        : relative;
                 text-align      : center;
                 margin-bottom   : 1rem;
+            }
+        }
+
+        &.description{
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                margin-bottom   : 2rem;
+                text-align      : center;
             }
         }
     }

@@ -24,7 +24,7 @@ export const ProductContainer = styled.div`
         padding : 0;
     }
 
-    h5{
+    h4{
         background-color: ${({theme}) => theme.colors.main};
         padding         : 10px 20px;
         position        : absolute;

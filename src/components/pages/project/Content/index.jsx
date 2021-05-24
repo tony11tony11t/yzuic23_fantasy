@@ -18,7 +18,6 @@ export default class Content extends Component {
         }else{
             return 33.3333;
         }
-        
     }
     
     render() {
@@ -31,11 +30,11 @@ export default class Content extends Component {
                     <h1>{project[index].Title}</h1>
                     <h3>{project[index].Tag}</h3>
                     <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img1.jpg`} className="master"/>
-                    <ProjectIntro>
+                    <ProjectIntro device = {"laptop"}>
                         <div className="left">
                             <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
                             <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
-                            <ProjectTeacher device = {"laptop"}>
+                            <ProjectTeacher>
                                 <h5>指導老師</h5>
                                 <h5>{project[index].Teacher.join("、")}</h5>
                             </ProjectTeacher>
@@ -48,15 +47,26 @@ export default class Content extends Component {
                             <IframeContainer device = {"laptop"}>
                                 <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </IframeContainer>
-                            <ProjectTeacher device = {"mobile"}>
-                                <h5>指導老師</h5>
-                                <h5>{project[index].Teacher.join("、")}</h5>
-                            </ProjectTeacher>
                         </div>
                     </ProjectIntro>
-                    <IframeContainer device = {"mobile"}>
-                        <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </IframeContainer>
+
+                    <ProjectIntro device = {"mobile"}>
+                        <h4>設計理念</h4>
+                        <p>{project[index].Intro}</p>
+                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
+                        <h4>作品介紹</h4>
+                        <p>{project[index].Content}</p>
+                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
+                        <IframeContainer device = {"mobile"}>
+                            <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </IframeContainer>
+                        <ProjectTeacher>
+                            <h5>指導老師</h5>
+                            <h5>{project[index].Teacher.join("、")}</h5>
+                        </ProjectTeacher>
+                    </ProjectIntro>
+                    
+                    
                     <h4>製作團隊</h4>
                     <ProjectMemberContainer>
                         {

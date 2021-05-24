@@ -12,10 +12,10 @@ export default class MoblieMenu extends Component {
     }
 
     render() {
-        const {HideMoblieMenu} = this.props
+        const {HideMoblieMenu , active} = this.props
         const {navBarItems} = data;
         return (
-            <MoblieMenuWrapper>
+            <MoblieMenuWrapper active = {active}>
                 <div className = "header">
                     <img src        = {`${process.env.PUBLIC_URL}/asset/logoBlue.png`}
                          onClick    = {this.ItemClick.bind(this , "index")}/>
@@ -25,10 +25,7 @@ export default class MoblieMenu extends Component {
                 </div>
                 <ul>
                     {navBarItems.map(info =>
-                        <Link to = {{
-                            pathname : `/${info.src}`, 
-                            state    : {name : info.src}
-                        }}>
+                        <Link to = {`/${info.src}`}>
                             <li onClick = {HideMoblieMenu}
                                 key     = {uuidv4()}>
                                 {info.chinese.replace(/\n/g , "")}<br/>

@@ -30,9 +30,10 @@ export const ProjectContent = styled.div`
 ` 
 
 export const ProjectIntro = styled.div`
-    display             : flex;
+    display             : ${({device}) => (device == (window.innerWidth > 980 ? "laptop" : "mobile") ? "flex" : "none")};
     align-content       : flex-start;
     margin              : 1rem 0 2rem;
+    flex-direction      : ${({device}) => (device == "laptop" ? "row" : "column")};;
 
     .left{
         display         : flex;
@@ -48,7 +49,7 @@ export const ProjectIntro = styled.div`
 `
 
 export const ProjectTeacher = styled.div`
-    display         : ${({device}) => (device == (window.innerWidth > 980 ? "laptop" : "mobile") ? "flex" : "none")};
+    display         : flex;
     flex-direction  : column;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {

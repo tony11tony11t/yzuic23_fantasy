@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled , {keyframes} from 'styled-components'
 
 export const MoblieMenuWrapper = styled.div`
     background-color    : ${({theme}) =>theme.colors.white};
@@ -6,9 +6,15 @@ export const MoblieMenuWrapper = styled.div`
     height              : 100%;
     position            : fixed;
     top                 : 0;
-    left                : 0;
+    left                : ${(_) => window.innerWidth}px;
     z-index             : ${({theme}) => theme.zIndex.highest};
+    opacity             : 0;
     overflow            : scroll;
+    transition          : all 0.3s;
+    ${({active}) => active && `
+        left : 0px;
+        opacity : 1;
+    `}
 
     .header{
         height              : ${({theme}) => theme.navBar.bellow980.height}px;

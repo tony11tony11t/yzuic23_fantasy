@@ -9,7 +9,7 @@ export const SubNavbarWrapper = styled.div`
 export const SubNavbarContainer = styled.ul`
     list-style          : none;
     display             : flex;
-    border              : solid .1rem ${({theme}) => theme.colors.main};
+    border              : solid 2.5px ${({theme}) => theme.colors.main};
     border-radius       : 99px;
     position            : relative;
     overflow            : hidden;

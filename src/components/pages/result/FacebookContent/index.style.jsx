@@ -114,7 +114,7 @@ export const HistoryContainerLeft = styled.div`
         opacity             : 1;
     }
 
-    h3{
+    h3 , h2{
         color           : ${({theme}) => theme.colors.main};
         font-weight     : 500;
         margin          : 0 0 20px 20px;
@@ -174,7 +174,7 @@ export const HistoryContainerRight = styled(HistoryContainerLeft)`
         }
     }
 
-    h3{
+    h3 , h2{
         margin : 0 20px 20px 0;
     }
 `

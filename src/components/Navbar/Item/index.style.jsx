@@ -14,13 +14,13 @@ export const ItemContainer = styled.div`
             position    : relative; 
         }
 
-        &:hover+p{
+        &:hover+h5{
             top     : 95%;
             opacity : 1;
         }
     }
 
-    p{
+    h5{
         background-color    : ${({theme}) => theme.colors.white};
         color               : ${({theme}) => theme.colors.main};
         z-index             : ${({theme}) => theme.zIndex.lowest};
@@ -39,9 +39,10 @@ export const ItemContainer = styled.div`
 
         span{
             display         : block;
-            font-size       : ${({theme}) => theme.fontSize.p * 0.5}px;
+            font-size       : ${({theme}) => theme.fontSize.h5 * 0.5}px;
             letter-spacing  : 0;
-            line-height     : ${({theme}) => theme.fontSize.p}px;
+            line-height     : ${({theme}) => theme.fontSize.h5}px;
+            font-weight     : 500;
         }
     }
 `

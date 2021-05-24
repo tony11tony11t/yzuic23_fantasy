@@ -26,7 +26,7 @@ export default class Navbar extends Component {
         return (
             <>
                 <NavbarWrapper>
-                    <Link to = {`${process.env.PUBLIC_URL}/`}>
+                    <Link to = {`/`}>
                         <img src = {`${process.env.PUBLIC_URL}/asset/logo.png`}/>
                     </Link>
                     <NavbarCotainer>
@@ -41,11 +41,8 @@ export default class Navbar extends Component {
                     </NavbarCotainer>
                     <MobileMeunBtn onClick = {this.ShowMoblieMenu}/>
                 </NavbarWrapper>
-                {
-                    mobileMenuVisible ? 
-                        <MobileMenu HideMoblieMenu  = {this.HideMoblieMenu}/> : 
-                        null
-                }
+                <MobileMenu HideMoblieMenu  = {this.HideMoblieMenu}
+                            active          = {mobileMenuVisible}/> 
             </>
         )
     }

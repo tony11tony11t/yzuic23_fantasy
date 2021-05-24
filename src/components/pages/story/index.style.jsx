@@ -10,16 +10,13 @@ export const StoryContainer = styled.div`
         flex-direction  : column;
     }
 
-    h1{
+    h3{
         color         : ${({theme}) => theme.colors.main};
-        font-weight   : 500;
     }
 
     h4{
-        color         : ${({theme}) => theme.colors.main};
-    }
-
-    p{
+        font-weight : 500;
+        line-height : ${({theme}) => theme.fontSize.h4 * 1.6}px;
         color       : ${({theme}) => theme.colors.black};
         margin      : 30px 0;
     }
@@ -35,11 +32,18 @@ export const MonsterWrapper = styled.div`
     .roleInfo{
         color   : ${({theme}) => theme.colors.main};
         height  : 100%;
-        
 
-        p{
+        h1{
+            color           : ${({theme}) => theme.colors.main};
+            margin-bottom   : 20px;
+        }
+
+        h3{
             color           : ${({theme}) => theme.colors.main};
             padding-right   : 50%;
+            font-weight     : 500;
+            white-space     : pre-line;
+            margin-bottom   : 40px;
 
             @media ${({theme}) => theme.mediaQueries.bellow980} {
                 padding-right   : 0;
@@ -48,9 +52,10 @@ export const MonsterWrapper = styled.div`
 
         td{
             vertical-align  : top;
-            font-size       : ${({theme}) => theme.fontSize.p}px;
+            font-size       : ${({theme}) => theme.fontSize.h3}px;
+            font-weight     : 600;
             padding         : 10px 10px 0 0;
-            line-height     : ${({theme}) => theme.fontSize.p * 1.5}px;
+            line-height     : ${({theme}) => theme.fontSize.h3 * 1.5}px;
 
             &.field{
                 width       : 80px;

@@ -59,6 +59,7 @@ export default class WebProject extends Component {
                     {project.map((obj , i) => obj ? 
                         <Works show  = {this.showContent} 
                                index = {i + 1}
+                               info  = {obj}
                                key   = {uuidv4()}/> : 
                         null)}
                 </ProjectContainer>
