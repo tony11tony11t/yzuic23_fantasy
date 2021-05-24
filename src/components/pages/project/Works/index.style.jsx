@@ -34,15 +34,16 @@ export const ProjectItem = styled.div`
         position            : absolute;
         transition          : all 0.5s;
         color               : ${({theme}) => theme.colors.white};
-        top                 : 50%;
         opacity             : 0;
-        text-align          : center;
-        transform           : translateY(-50%);
         font-size           : ${({theme}) => theme.fontSize.h3}px;
+        font-weight         : 600;
+        letter-spacing      : 2px;
+        bottom              : 30px;
+        left                : 30px;
     }
 
     &:hover:before{
-        opacity : 0.5;
+        opacity : 0.7;
     }
     &:hover:after{
         opacity : 1;

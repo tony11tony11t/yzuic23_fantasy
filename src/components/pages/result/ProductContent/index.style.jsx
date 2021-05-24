@@ -62,6 +62,7 @@ export const ProductImgContainer = styled.div`
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             flex        : 0 0 100%;
             padding     : 16px 0;
+            align-self  : center;
 
             &:first-child,
             &:last-child{
