@@ -150,8 +150,8 @@
                 "value" : "壓力大時會使出狂放歌喉，聽到的人會開始精神渙散神智不清。"
             }],
             "Chart" : [{
-                "score" : 5,
-                "label" : "體重"
+                "score" : 2,
+                "label" : "早八準時到"
             },{
                 "score" : 4,
                 "label" : "易怒"
@@ -159,11 +159,11 @@
                 "score" : 5,
                 "label" : "壓力"
             },{
-                "score" : 2,
-                "label" : "早八準時到"
-            },{
                 "score" : 4,
                 "label" : "訊息未讀"
+            },{
+                "score" : 5,
+                "label" : "體重"
             }]
         },
         "fantasy" : {

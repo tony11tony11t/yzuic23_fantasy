@@ -110,15 +110,15 @@ export default class RaderChart extends Component{
     }
     
     render() {
-        console.log(1);
         const {size , scale} = this.props;
-        let padding = 80;
-        let width = (size * 0.5) * 100 * scale + padding * 2
-        let height = (size * 0.5) * 100 * scale + padding * 2
+        let paddingHeight = 40;
+        let paddingWidth = 60;
+        let width = (size * 0.5) * 100 * scale + paddingWidth * 2
+        let height = (size * 0.5) * 100 * scale + paddingHeight * 2
         return (
             <svg width  = {width} 
                  height = {height}>
-                <g transform={`translate(${padding},${padding})`}>
+                <g transform={`translate(${paddingWidth},${paddingHeight})`}>
                     {[...Array(size)].map((_ , i) => this.getPath(i + 1))}
                     {this.getLine()}
                     {this.getScore()}

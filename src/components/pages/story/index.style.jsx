@@ -4,7 +4,9 @@ export const StoryContainer = styled.div`
     display         : flex;
     flex-direction  : row;
     flex            : 1;
-    margin-top      : 20px;
+    max-width       : 1200px;
+    margin          : 20px auto 0;
+    align-items     : center;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
         flex-direction  : column;
@@ -33,53 +35,53 @@ export const MonsterWrapper = styled.div`
         color   : ${({theme}) => theme.colors.main};
         height  : 100%;
 
-        h1{
-            color           : ${({theme}) => theme.colors.main};
-            margin-bottom   : 20px;
-        }
-
-        h3{
-            color           : ${({theme}) => theme.colors.main};
-            padding-right   : 50%;
-            font-weight     : 500;
-            white-space     : pre-line;
-            margin-bottom   : 40px;
+        .intro{
+            display: flex;
 
             @media ${({theme}) => theme.mediaQueries.bellow980} {
-                padding-right   : 0;
+                flex-direction  : column;
+            }
+
+            .text{
+                flex: 1;
+                h1{
+                    color           : ${({theme}) => theme.colors.main};
+                    margin-bottom   : 20px;
+                }
+
+                h3{
+                    color           : ${({theme}) => theme.colors.main};
+                    font-weight     : 500;
+                    white-space     : pre-line;
+                    margin-bottom   : 40px;
+                }
             }
         }
+
+        
 
         td{
             vertical-align  : top;
             font-size       : ${({theme}) => theme.fontSize.h3}px;
             font-weight     : 600;
-            padding         : 10px 10px 0 0;
-            line-height     : ${({theme}) => theme.fontSize.h3 * 1.5}px;
+            padding-top     : 5px;
+            line-height     : ${({theme}) => theme.fontSize.h3 * 1.4}px;
+            letter-spacing  : 2px;
 
             &.field{
                 width       : 80px;
             }
- 
-            &:last-child{
-                padding-right : 50%; 
 
-                @media ${({theme}) => theme.mediaQueries.bellow980} {
-                    padding-right   : 0;
-                }   
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                font-size       : ${({theme}) => theme.fontSize.bellow980.h3}px;
+                line-height     : ${({theme}) => theme.fontSize.bellow980.h3 * 1.4}px;
+
+                &.field{
+                    width       : 60px;
+                }
             }
-        }
-        
-    }
 
-    .raderChartContainer{
-        position    : absolute;
-        top         : 0;
-        right       : 0;
-
-        @media ${({theme}) => theme.mediaQueries.bellow980} {
-            position    : relative;
-            text-align: center;
+            
         }
     }
 `

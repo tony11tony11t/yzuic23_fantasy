@@ -48,9 +48,10 @@ export const MoblieMenuWrapper = styled.div`
 
         li{
             margin-right    : ${({theme}) => theme.page.bellow980.padding + 40}px;
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h3}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h3 * 1.4}px;
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h1}px;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h1 * 1.4}px;
             color           : ${({theme}) => theme.colors.main};
+            font-weight     : 600;
             text-align      : right;
             padding         : 20px 0;
             white-space     : normal;

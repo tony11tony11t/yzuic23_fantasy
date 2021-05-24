@@ -23,11 +23,11 @@ export const SubNavbarContainer = styled.ul`
     border-top-left-radius  : 0;
     border-top              : none;
     z-index                 : ${({theme}) => theme.zIndex.medium};
-    top                     : 48px;
+    top                     : 42px;
 
     li{
         color           : ${({theme}) => theme.colors.main};
-        font-size       : ${({theme}) => theme.fontSize.bellow980.h4}px;
+        font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
         padding         : 10px 0;
         text-align      : center;
         font-weight     : 500;
@@ -49,7 +49,7 @@ export const SelectBlock = styled.div`
     position                    : relative;
     background-color            : ${({theme}) => theme.colors.white};
     color                       : ${({theme}) => theme.colors.main};
-    font-size                   : ${({theme}) => theme.fontSize.bellow980.h4}px;
+    font-size                   : ${({theme}) => theme.fontSize.bellow980.h5}px;
     padding                     : 15px 0 10px;
     text-align                  : center;
     font-weight                 : 500;  

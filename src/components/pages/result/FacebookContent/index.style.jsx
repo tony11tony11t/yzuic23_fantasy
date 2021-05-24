@@ -118,10 +118,11 @@ export const HistoryContainerLeft = styled.div`
         color           : ${({theme}) => theme.colors.main};
         font-weight     : 500;
         margin          : 0 0 20px 20px;
+        word-break      : break-all;
+
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
-            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.4}px;
+            font-weight     : 600;
         }
 
         span{

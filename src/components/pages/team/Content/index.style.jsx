@@ -83,6 +83,7 @@ export const TeamIntro = styled.div`
             @media ${({theme}) => theme.mediaQueries.bellow980} {
                 margin-bottom   : 2rem;
                 text-align      : center;
+                font-weight     : 500;
             }
         }
     }

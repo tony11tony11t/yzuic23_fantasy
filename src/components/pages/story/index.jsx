@@ -10,7 +10,8 @@ import {StoryContainer ,
 
 export default class WebIndex extends Component {
     state = {
-        page : "theme", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
+        page            : "theme", // "rookie" | "chubby" | "boomboom" | "fantasy" | "theme"
+        raderVisible    : false
     }
 
     getContent = () => {
@@ -36,7 +37,14 @@ export default class WebIndex extends Component {
         )
     }
 
-    changePage = page => this.setState({page})
+    changePage = page => {
+        this.setState({page , raderVisible : false});
+    }
+
+    changeRaderVisible = () => {
+        const {raderVisible} = this.state;
+        this.setState({raderVisible : !raderVisible});
+    }
 
     getMonster = () => {
         const {page} = this.state;
@@ -44,10 +52,20 @@ export default class WebIndex extends Component {
         return (
             <MonsterWrapper>
                 <div className="roleInfo">
-                    <h1>
-                        <span>{ChName}</span>&nbsp;{EnName}
-                    </h1>
-                    <h3>{Intro}</h3>
+                    <div className="intro">
+                        <div className="text">
+                            <h1>
+                                <span>{ChName}</span>&nbsp;{EnName}
+                            </h1>
+                            <h3>{Intro}</h3>
+                        </div>
+                        {
+                            window.innerWidth > 980 ? 
+                                <RaderChart size    = {5}
+                                            scale   = {window.innerWidth / 1920 } 
+                                            data    = {Chart}/> : null
+                        }
+                    </div>
                     <table>
                         <tbody>
                             {Info.map(obj => {
@@ -59,25 +77,26 @@ export default class WebIndex extends Component {
                         </tbody>
                     </table>
                 </div>
-                <div className="raderChartContainer">
-                    <RaderChart size    = {5} 
-                                scale   = {window.innerWidth > 980 ? window.innerWidth / 1920 : window.innerWidth / 500} 
-                                data    = {Chart}/>
-                </div>
             </MonsterWrapper>
         )
     }
     
     render() {
-        const {page} = this.state;
+        const {page , raderVisible} = this.state;
         const {storySubNavBarItems} = data;
+        let chart = page != "theme" ? data.monster[page].Chart : null;
+        
         return (
             <Wrapper>
                 <SubNavBar  data         = {storySubNavBarItems} 
                             changePage   = {this.changePage}
                             width        = {65}/>
                 <StoryContainer ref = { this.contentRef } >
-                    <Role src = {page} bg = {page !== "theme"}/>
+                    <Role   src                 = {page} 
+                            bg                  = {page !== "theme"} 
+                            chart               = {chart} 
+                            raderVisible        = {raderVisible}
+                            changeRaderVisible  = {this.changeRaderVisible}/>
                     <div className ="content">
                         {page === "theme" ? this.getContent() : this.getMonster()}
                     </div>
