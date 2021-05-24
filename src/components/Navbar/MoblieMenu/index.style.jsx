@@ -1,4 +1,4 @@
-import styled , {keyframes} from 'styled-components'
+import styled from 'styled-components'
 
 export const MoblieMenuWrapper = styled.div`
     background-color    : ${({theme}) =>theme.colors.white};
@@ -29,13 +29,13 @@ export const MoblieMenuWrapper = styled.div`
 
         &>img{
             width       : 16%;
-            min-width   : 250px;
+            min-width   : 200px;
             align-self  : center;
             cursor      : pointer;
 
             &.back{
-                width       : 40px;
-                min-width   : 40px;
+                width       : 25px;
+                min-width   : 25px;
             }
         }
     }

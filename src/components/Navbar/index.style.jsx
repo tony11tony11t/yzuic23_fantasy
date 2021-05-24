@@ -46,6 +46,10 @@ export const NavbarWrapper = styled.div`
 
         img{
             width       : 100%;
+
+            @media ${({theme}) => theme.mediaQueries.bellow980} {
+                width       : 80%;
+            }
         }
     }
 

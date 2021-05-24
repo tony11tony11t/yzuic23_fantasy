@@ -20,10 +20,6 @@ export const ProductContainer = styled.div`
         padding-right   : 0;
     }
 
-    &:last-child{
-        padding : 0;
-    }
-
     h4{
         background-color: ${({theme}) => theme.colors.main};
         padding         : 10px 20px;
@@ -44,6 +40,7 @@ export const ProductImgContainer = styled.div`
     display         : flex;
     flex-wrap       : wrap;
     justify-content : space-between;
+    align-content   : center;
 
     img{
         width       : 1px;

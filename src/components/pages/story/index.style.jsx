@@ -46,7 +46,7 @@ export const MonsterWrapper = styled.div`
                 flex: 1;
                 h1{
                     color           : ${({theme}) => theme.colors.main};
-                    margin-bottom   : 20px;
+                    margin-bottom   : 50px;
                 }
 
                 h3{

@@ -816,25 +816,17 @@
     },{
         "name" : "狂想大亂鬥－小怪獸明信片",
         "src" : [
-            "poster(1).png",
-            "poster(1)_back.png",
-            "poster(2).png"
-        ]
-    },{
-        "name" : "狂想大亂鬥－小怪獸明信片",
-        "src" : [
-            "poster(1).png",
-            "poster(1)_back.png"
-        ]
-    },{
-        "name" : "狂想進化論－原創短袖T",
-        "src" : [
-            "cloth.png"
+            "poster.png"
         ]
     },{
         "name" : "狂想展覽手冊",
         "src" : [
             "introNote.png"
+        ]
+    },{
+        "name" : "狂想進化論－原創短袖T",
+        "src" : [
+            "cloth.png"
         ]
     },{
         "name" : "狂想進化論－主視覺海報",
