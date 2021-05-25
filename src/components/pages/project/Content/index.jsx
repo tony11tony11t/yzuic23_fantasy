@@ -14,9 +14,15 @@ export default class Content extends Component {
 
     getMemberFlexWidth = (length , i) => {
         if(window.innerWidth > 980){
-            return length > 7 || length < 5 ? 20 : (100 / length);
+            if(length < 7){
+                return 100 / 6;
+            }else if(length == 7){
+                return 25;
+            }else{
+                return 20;
+            }
         }else{
-            return 33.3333;
+            return 50;
         }
     }
     
@@ -58,7 +64,7 @@ export default class Content extends Component {
                         <p>{project[index].Content}</p>
                         <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
                         <IframeContainer device = {"mobile"}>
-                            <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/D1_HqgsevAg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </IframeContainer>
                         <ProjectTeacher>
                             <h5>指導老師</h5>
@@ -68,7 +74,7 @@ export default class Content extends Component {
                     
                     
                     <h4>製作團隊</h4>
-                    <ProjectMemberContainer>
+                    <ProjectMemberContainer length = {project[index].Members.length}>
                         {
                             project[index].Members.map((m , i , arr) => {
                                 return (

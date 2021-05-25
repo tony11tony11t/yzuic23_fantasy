@@ -9,7 +9,8 @@ export const RecordPhotoContainer = styled.div`
         margin      : 20px 0 20px 2%;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            margin  : 10px 0 10px 1%;
+            margin  : 10px 0;
+            width   : 100%;
         }
         
 

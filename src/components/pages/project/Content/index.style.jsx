@@ -80,11 +80,14 @@ export const ProjectTeacher = styled.div`
 `
 
 export const ProjectMemberContainer = styled.div`
-    display     : flex;
-    flex-wrap   : wrap;
-    margin-top  : 1rem;
+    display         : flex;
+    flex-wrap       : wrap;
+    margin-top      : 1rem;
+    justify-content : center;
+    padding         : 0px ${({length}) => length == 7 ? 60 : 0}px;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        margin-top  : 0;
+        margin-top      : 0;
+        justify-content : flex-start;
     }
 `

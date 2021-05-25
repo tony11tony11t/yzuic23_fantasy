@@ -9,8 +9,9 @@ export const ProjectItem = styled.div`
     position    : relative;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        width       : 100%;
-        max-width   : 100%;
+        width           : 100%;
+        max-width       : 100%;
+        margin-bottom   : 15px;
     }
 
     img{
