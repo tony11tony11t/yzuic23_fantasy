@@ -45,10 +45,6 @@ export const HistoryWrapper = styled.div`
     display : flex;
     height  : 300px;
 
-    @media ${({theme}) => theme.mediaQueries.bellow980} {
-        height  : 250px;
-    }
-
     div{
         flex : 1;
 

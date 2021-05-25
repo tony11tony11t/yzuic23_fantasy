@@ -9,7 +9,8 @@ export const ProjectItem = styled.div`
     position    : relative;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
-        width   : 50%;
+        width       : 100%;
+        max-width   : 100%;
     }
 
     img{
@@ -40,6 +41,15 @@ export const ProjectItem = styled.div`
         letter-spacing      : 2px;
         bottom              : 30px;
         left                : 30px;
+
+        @media ${({theme}) => theme.mediaQueries.bellow980} {
+            bottom          : 20px;
+            left            : 20px;
+            font-size       : ${({theme}) => theme.fontSize.bellow980.h5}px;
+            word-break      : break-all;
+            width           : 70%;
+            line-height     : ${({theme}) => theme.fontSize.bellow980.h5 * 1.3}px;
+        }
     }
 
     &:hover:before{

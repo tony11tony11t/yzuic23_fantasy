@@ -44,8 +44,9 @@ class App extends Component {
     return (
         <AppWrapper>
             <Navbar changePage = {this.changePage}/>
-            <ContainerWrapper ref   = {this.wrapper}
-                              bgUrl = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}>
+            <ContainerWrapper ref         = {this.wrapper}
+                              bgUrl       = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}
+                              mobileBgUrl = {`${process.env.PUBLIC_URL}/asset/bg_bellow980_${page}.png`}>
                 <Switch>
                     <Route path={`/index`}    component={WebIndex} />
                     <Route path={`/story`}    component={WebStory} />

@@ -9,10 +9,16 @@ export default class WebRecord extends Component {
         return (
             <Wrapper max = {1280}>
                 <IframeContainer>
-                    <iframe src="https://www.youtube.com/embed/mBFLZxaPzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/becbbAOQx5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </IframeContainer>
+                <IframeContainer>
+                    <iframe src="https://www.youtube.com/embed/zIrUDLCqkvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </IframeContainer>
+                <IframeContainer>
+                    <iframe src="https://www.youtube.com/embed/o6Jn9S2ykb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </IframeContainer>
                 <RecordPhotoContainer>
-                    {[...Array(31)].map((_ , i) => 
+                    {[...Array(30)].map((_ , i) => 
                         <img    src = {`${process.env.PUBLIC_URL}/asset/record/record (${i + 1}).jpg`} 
                                 key = {uuidv4()}/>
                     )}
