@@ -34,8 +34,8 @@ export const LoadingContainer = styled.div`
     align-items         : center;
     flex-direction      : column;
     opacity             : ${({percent}) => percent >= 100 ? 0 : 1};
-    transition          : all 1s;
-    transition-delay    : 1s;
+    transition          : all ${({percent}) => percent >= 100 ? 1 : 0}s;
+    transition-delay    : ${({percent}) => percent >= 100 ? 1 : 0}s;
 
     img{
         width       : 150px;

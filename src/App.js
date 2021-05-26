@@ -6,6 +6,7 @@ import WebProject from './components/pages/project'
 import WebRecord from './components/pages/record'
 import WebResult from './components/pages/result'
 import Navbar   from './components/Navbar'
+import data from './data.json'
 import {AppWrapper , ContainerWrapper , LoadingContainer} from './App.style'
 import {Route , Redirect , Switch , withRouter} from 'react-router-dom'
 
@@ -36,7 +37,7 @@ class App extends Component {
                 
                 const img = new Image();
 
-                img.src = src;
+                img.src = `${process.env.PUBLIC_URL}/asset/${src}`;
                 img.onload = resolve();
                 img.onerror = reject();
             });
@@ -44,14 +45,20 @@ class App extends Component {
 
         let partPercent = 100 / promise.length;
 
-        for(let i = 0 ; i < promise.length ; i++){
-            await promise[i].then(_ => {
-                setTimeout(() => {
-                    console.log(partPercent * (i + 1));
-                    this.setState({loadingPercent : partPercent * (i + 1)});
-                }, 1000);
-            });
+        if(partPercent < 100 && partPercent > 0){
+            for(let i = 0 ; i < promise.length ; i++){
+                await promise[i].then(_ => {
+                    setTimeout(() => {
+                        console.log(partPercent * (i + 1));
+                        this.setState({loadingPercent : partPercent * (i + 1)});
+                    }, 1000);
+                });
+            }
+        }else{
+            this.setState({loadingPercent :100});
         }
+
+        
     }
 
     componentDidMount  = () => {
@@ -59,51 +66,27 @@ class App extends Component {
             this.setState({width : window.innerWidth})
         });
 
-        const imgs = [
-            `${process.env.PUBLIC_URL}/asset/loading.gif`,
-            `${process.env.PUBLIC_URL}/asset/fixed_fb.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_contact.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_project.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_record.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_result.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_story.png`,
-            `${process.env.PUBLIC_URL}/asset/icon_team.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_project.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_project.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_record.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_result.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_story.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_team.png`,
-            `${process.env.PUBLIC_URL}/asset/logo.png`,
-            `${process.env.PUBLIC_URL}/asset/logoBlue.png`,
-            `${process.env.PUBLIC_URL}/asset/story_boomboom.png`,
-            `${process.env.PUBLIC_URL}/asset/story_chubby.png`,
-            `${process.env.PUBLIC_URL}/asset/story_fantasy.png`,
-            `${process.env.PUBLIC_URL}/asset/story_rookie.png`,
-            `${process.env.PUBLIC_URL}/asset/story_theme.png`,
-            `${process.env.PUBLIC_URL}/asset/team_bg.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_active.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_admin.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_art.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_GA.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_place.png`,
-            `${process.env.PUBLIC_URL}/asset/team_img_PR.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_active.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_admin.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_art.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_GA.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_place.png`,
-            `${process.env.PUBLIC_URL}/asset/team_txt_PR.png`
-        ]
-        this.catchImages(imgs);
+        this.RouteListener();
+    }
+
+    RouteListener = (prevProps) => {
+        const {pathname} = this.props.location;
+        if (prevProps == null || pathname !== prevProps.location.pathname) {
+            this.wrapper.current.scrollTop = 0;
+            let name = pathname.split("/")[1];
+            name = name == "/" || name == "" ? "index" : name;
+
+            this.setState({
+                page            : name,
+                loadingPercent  : 10
+            });
+
+            this.catchImages(data.Image[name]);
+        }
     }
 
     componentDidUpdate(prevProps) {
-        const {pathname} = this.props.location;
-        if (pathname !== prevProps.location.pathname) {
-            this.wrapper.current.scrollTop = 0;
-            this.setState({page : pathname.split("/")[1] });
-        }
+        this.RouteListener(prevProps)
     }
 
     componentWillUnmount = () => {
