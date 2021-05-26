@@ -44,13 +44,14 @@ class App extends Component {
 
         let partPercent = 100 / promise.length;
 
-        promise.forEach((p , i) => {
-            p.then(_ => {
-                console.log(partPercent * (i + 1));
-                this.setState({loadingPercent : partPercent * (i + 1)});
+        for(let i = 0 ; i < promise.length ; i++){
+            await promise[i].then(_ => {
+                setTimeout(() => {
+                    console.log(partPercent * (i + 1));
+                    this.setState({loadingPercent : partPercent * (i + 1)});
+                }, 1000);
             });
-            
-        });
+        }
     }
 
     componentDidMount  = () => {
