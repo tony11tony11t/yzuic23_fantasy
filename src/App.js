@@ -33,6 +33,7 @@ class App extends Component {
     catchImages = async (srcArray) => {
         const promise = await srcArray.map(src =>{
             return new Promise((resolve , reject) => {
+                
                 const img = new Image();
 
                 img.src = src;
@@ -58,12 +59,40 @@ class App extends Component {
         });
 
         const imgs = [
+            `${process.env.PUBLIC_URL}/asset/loading.gif`,
+            `${process.env.PUBLIC_URL}/asset/fixed_fb.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_contact.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_project.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_record.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_result.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_story.png`,
+            `${process.env.PUBLIC_URL}/asset/icon_team.png`,
             `${process.env.PUBLIC_URL}/asset/bg_project.png`,
             `${process.env.PUBLIC_URL}/asset/bg_project.png`,
             `${process.env.PUBLIC_URL}/asset/bg_record.png`,
             `${process.env.PUBLIC_URL}/asset/bg_result.png`,
             `${process.env.PUBLIC_URL}/asset/bg_story.png`,
-            `${process.env.PUBLIC_URL}/asset/bg_team.png`
+            `${process.env.PUBLIC_URL}/asset/bg_team.png`,
+            `${process.env.PUBLIC_URL}/asset/logo.png`,
+            `${process.env.PUBLIC_URL}/asset/logoBlue.png`,
+            `${process.env.PUBLIC_URL}/asset/story_boomboom.png`,
+            `${process.env.PUBLIC_URL}/asset/story_chubby.png`,
+            `${process.env.PUBLIC_URL}/asset/story_fantasy.png`,
+            `${process.env.PUBLIC_URL}/asset/story_rookie.png`,
+            `${process.env.PUBLIC_URL}/asset/story_theme.png`,
+            `${process.env.PUBLIC_URL}/asset/team_bg.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_active.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_admin.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_art.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_GA.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_place.png`,
+            `${process.env.PUBLIC_URL}/asset/team_img_PR.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_active.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_admin.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_art.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_GA.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_place.png`,
+            `${process.env.PUBLIC_URL}/asset/team_txt_PR.png`
         ]
         this.catchImages(imgs);
     }
@@ -90,19 +119,24 @@ class App extends Component {
             <ContainerWrapper ref         = {this.wrapper}
                               bgUrl       = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}
                               mobileBgUrl = {`${process.env.PUBLIC_URL}/asset/bg_bellow980_${page}.png`}>
-                <Switch>
-                    <Route path={`/index`}    component={WebIndex} />
-                    <Route path={`/story`}    component={WebStory} />
-                    <Route path={`/team`}     component={WebTeam} />
-                    <Route path={`/project`}  component={WebProject} />
-                    <Route path={`/record`}   component={WebRecord} />
-                    <Route path={`/result`}   component={WebResult} />
-                    <Redirect to={`/index`} />
-                </Switch>
-                <LoadingContainer percent = {loadingPercent}>
-                    <img src={`${process.env.PUBLIC_URL}/asset/loading.gif`} />
-                    <div className="loadingBarBorder"></div>
-                </LoadingContainer>
+                {
+                    loadingPercent < 100 ?
+
+                    <LoadingContainer percent = {loadingPercent}>
+                        <img src={`${process.env.PUBLIC_URL}/asset/loading.gif`} />
+                        <div className="loadingBarBorder"></div>
+                    </LoadingContainer> :
+
+                    <Switch>
+                        <Route path={`/index`}    component={WebIndex} />
+                        <Route path={`/story`}    component={WebStory} />
+                        <Route path={`/team`}     component={WebTeam} />
+                        <Route path={`/project`}  component={WebProject} />
+                        <Route path={`/record`}   component={WebRecord} />
+                        <Route path={`/result`}   component={WebResult} />
+                        <Redirect to={`/index`} />
+                    </Switch>
+                }   
             </ContainerWrapper>
         </AppWrapper>
     )

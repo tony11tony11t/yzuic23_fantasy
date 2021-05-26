@@ -27,7 +27,7 @@ export const LoadingContainer = styled.div`
     left                : 0;
     width               : 100%;
     height              : 100%;
-    z-index             : ${({theme , percent}) => percent >= 100 ? -1 : theme.zIndex.medium};
+    z-index             : ${({theme , percent}) => percent >= 100 ? -1 : theme.zIndex.highest};
     background-color    : #FF506E;
     display             : flex;
     justify-content     : center;
