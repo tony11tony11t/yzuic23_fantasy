@@ -32,13 +32,14 @@ class App extends Component {
     }
 
     catchImages = async (srcArray) => {
-        const promise = await srcArray.map(src =>{
+        const promise = await srcArray.map((src , i) =>{
             return new Promise((resolve , reject) => {
                 
                 const img = new Image();
 
                 img.src = `${process.env.PUBLIC_URL}/asset/${src}`;
-                img.onload = resolve();
+                console.log(img.src);
+                img.onload  = resolve(i);
                 img.onerror = reject();
             });
         });
@@ -47,11 +48,9 @@ class App extends Component {
 
         if(partPercent < 100 && partPercent > 0){
             for(let i = 0 ; i < promise.length ; i++){
-                await promise[i].then(_ => {
-                    setTimeout(() => {
-                        console.log(partPercent * (i + 1));
-                        this.setState({loadingPercent : partPercent * (i + 1)});
-                    }, 1000);
+                await promise[i].then(index => {
+                    console.log(partPercent * (index + 1));
+                    this.setState({loadingPercent : partPercent * (index + 1)});
                 });
             }
         }else{
