@@ -12,7 +12,7 @@ export default class ProductContent extends Component {
                 {
                     data.product.map((d , i) => {
                         return (
-                            <ProductContainer length = {d.src.length} index = {i}>
+                            <ProductContainer length = {d.src.length} index = {i} key = {uuidv4()}>
                                 <h4>{d.name}</h4>
                                 <ProductImgContainer length = {d.src.length}>
                                 {

@@ -6,6 +6,7 @@ import {ThemeProvider} from 'styled-components'
 import Theme from './theme/theme'
 import {HashRouter} from 'react-router-dom'
 
+
 ReactDOM.render(
     <HashRouter>
         <ThemeProvider theme = {Theme}>

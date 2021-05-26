@@ -15,7 +15,7 @@ export default class WebProject extends Component {
     }
 
     componentDidMount = () => {
-        this.setState({project : data.project})
+        this.setState({project : data.project});
     }
 
     showContent = index => {
