@@ -119,24 +119,20 @@ class App extends Component {
             <ContainerWrapper ref         = {this.wrapper}
                               bgUrl       = {`${process.env.PUBLIC_URL}/asset/bg_${page}.png`}
                               mobileBgUrl = {`${process.env.PUBLIC_URL}/asset/bg_bellow980_${page}.png`}>
-                {
-                    loadingPercent < 100 ?
-
-                    <LoadingContainer percent = {loadingPercent}>
-                        <img src={`${process.env.PUBLIC_URL}/asset/loading.gif`} />
-                        <div className="loadingBarBorder"></div>
-                    </LoadingContainer> :
-
-                    <Switch>
-                        <Route path={`/index`}    component={WebIndex} />
-                        <Route path={`/story`}    component={WebStory} />
-                        <Route path={`/team`}     component={WebTeam} />
-                        <Route path={`/project`}  component={WebProject} />
-                        <Route path={`/record`}   component={WebRecord} />
-                        <Route path={`/result`}   component={WebResult} />
-                        <Redirect to={`/index`} />
-                    </Switch>
-                }   
+                <Switch>
+                    <Route path={`/index`}    component={WebIndex} />
+                    <Route path={`/story`}    component={WebStory} />
+                    <Route path={`/team`}     component={WebTeam} />
+                    <Route path={`/project`}  component={WebProject} />
+                    <Route path={`/record`}   component={WebRecord} />
+                    <Route path={`/result`}   component={WebResult} />
+                    <Redirect to={`/index`} />
+                </Switch>
+                
+                <LoadingContainer percent = {loadingPercent}>
+                    <img src={`${process.env.PUBLIC_URL}/asset/loading.gif`} />
+                    <div className="loadingBarBorder"></div>
+                </LoadingContainer>
             </ContainerWrapper>
         </AppWrapper>
     )
