@@ -80,6 +80,11 @@ class App extends Component {
         });
 
         this.RouteListener();
+
+        //if sometning wrong , set time limit enter website
+        setTimeout(() => {
+            this.setState({loadingPercent  : 100});
+        } , 20000)
     }
 
     RouteListener = (prevProps) => {

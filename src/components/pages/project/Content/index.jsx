@@ -37,26 +37,34 @@ export default class Content extends Component {
                     <h3>{project[index].Tag}</h3>
                     <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img1.jpg`} className="master"/>
                     <ProjectIntro device = {"laptop"}>
-                        <div className="left">
-                            <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
-                            <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
-                            <ProjectTeacher>
-                                <h5>指導老師</h5>
-                                <h5>{project[index].Teacher.join("、")}</h5>
-                            </ProjectTeacher>
+                        <div className="ProjectContainer">
+                            <div className="left">
+                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
+                            </div>
+                            <div className="right">
+                                <h4>設計理念</h4>
+                                <p>{project[index].Intro}</p>
+                                <h4>作品介紹</h4>
+                                <p>{project[index].Content}</p> 
+                            </div>
                         </div>
-                        <div className="right">
-                            <h4>設計理念</h4>
-                            <p>{project[index].Intro}</p>
-                            <h4>作品介紹</h4>
-                            <p>{project[index].Content}</p>
-                            {
-                                project[index].Video != "" ?
-                                    <IframeContainer device = {"laptop"}>
-                                        <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </IframeContainer> :
-                                    null
-                            }
+                        <div className="ProjectContainer">
+                            <div className="left">
+                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
+                                <ProjectTeacher>
+                                    <h5>指導老師</h5>
+                                    <h5>{project[index].Teacher.join("、")}</h5>
+                                </ProjectTeacher>
+                            </div>
+                            <div className="right">
+                                {
+                                    project[index].Video != "" ?
+                                        <IframeContainer device = {"laptop"}>
+                                            <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </IframeContainer> :
+                                        null
+                                }
+                            </div>
                         </div>
                     </ProjectIntro>
 

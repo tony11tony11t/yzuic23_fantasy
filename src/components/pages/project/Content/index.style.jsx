@@ -33,19 +33,34 @@ export const ProjectIntro = styled.div`
     display             : ${({device}) => (device == (window.innerWidth > 980 ? "laptop" : "mobile") ? "flex" : "none")};
     align-content       : flex-start;
     margin              : 1rem 0 2rem;
-    flex-direction      : ${({device}) => (device == "laptop" ? "row" : "column")};;
+    flex-direction      : column;
 
-    .left{
-        display         : flex;
-        flex-direction  : column;
-        flex            : 1;
+    .ProjectContainer{
+        display             : flex;
+        align-content       : flex-start;
+        flex-direction      : ${({device}) => (device == "laptop" ? "row" : "column")};
+
+        .left{
+            display         : flex;
+            flex-direction  : column;
+            flex            : 1;
+            height          : auto;
+
+            div{
+                flex            : 1;
+                justify-content : center;
+            }
+        }
+
+        .right{
+            flex            : 2.5;
+            margin-left     : 40px;
+            position        : relative;
+            height          : auto;
+        }
     }
 
-    .right{
-        flex            : 2.5;
-        margin-left     : 40px;
-        position        : relative;
-    }
+    
 `
 
 export const ProjectTeacher = styled.div`

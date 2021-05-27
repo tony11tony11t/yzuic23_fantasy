@@ -25,9 +25,8 @@ export default class MoblieMenu extends Component {
                 </div>
                 <ul>
                     {navBarItems.map(info =>
-                        <Link to = {`/${info.src}`}>
-                            <li onClick = {HideMoblieMenu}
-                                key     = {uuidv4()}>
+                        <Link to = {`/${info.src}`} key = {uuidv4()}>
+                            <li onClick = {HideMoblieMenu}>
                                 {info.chinese.replace(/\n/g , "")}<br/>
                                 <span>{info.english}</span>
                             </li>
