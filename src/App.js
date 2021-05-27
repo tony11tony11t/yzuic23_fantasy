@@ -13,7 +13,7 @@ import {Route , Redirect , Switch , withRouter} from 'react-router-dom'
 class App extends Component {
     state = {
         page            : "index", // "index" | "story" | "team" | "project"
-        loadingPercent  : 10,
+        loadingPercent  : 0,
         width           : null
     }
 
@@ -32,32 +32,46 @@ class App extends Component {
     }
 
     catchImages = async (srcArray) => {
+        
         const promise = await srcArray.map((src , i) =>{
             return new Promise((resolve , reject) => {
                 
                 const img = new Image();
 
                 img.src = `${process.env.PUBLIC_URL}/asset/${src}`;
-                console.log(img.src);
-                img.onload  = resolve(i);
-                img.onerror = reject();
+                img.onload  = resolve.bind(this , i);
+                img.onerror = reject.bind(this);
+
             });
         });
 
         let partPercent = 100 / promise.length;
-
-        if(partPercent < 100 && partPercent > 0){
-            for(let i = 0 ; i < promise.length ; i++){
-                await promise[i].then(index => {
-                    console.log(partPercent * (index + 1));
-                    this.setState({loadingPercent : partPercent * (index + 1)});
-                });
-            }
-        }else{
-            this.setState({loadingPercent :100});
+    
+        for(let p of promise){
+            p.then(_=> {
+                const {loadingPercent} = this.state;
+                let nowPercent = loadingPercent + partPercent;
+                this.setState({loadingPercent : nowPercent <= 100 ? nowPercent : 100});
+            });
         }
+    }
 
-        
+    catchVideo = async (srcArray) => {
+        const promise = await srcArray.map((src , i) =>{
+            return new Promise((resolve , reject) => {
+                
+                const video = document.createElement("video");
+
+                video.src = `${process.env.PUBLIC_URL}/asset/${src}`;
+                video.oncanplay  = resolve.bind(this , i);
+            });
+        });
+
+        for(let p of promise){
+            p.then(_=> {
+                this.setState({loadingPercent :100});
+            });
+        }
     }
 
     componentDidMount  = () => {
@@ -71,16 +85,18 @@ class App extends Component {
     RouteListener = (prevProps) => {
         const {pathname} = this.props.location;
         if (prevProps == null || pathname !== prevProps.location.pathname) {
-            this.wrapper.current.scrollTop = 0;
             let name = pathname.split("/")[1];
-            name = name == "/" || name == "" ? "index" : name;
-
+                name = name == "/" || name == "" ? "index" : name;
+            this.wrapper.current.scrollTop = 0;
             this.setState({
                 page            : name,
-                loadingPercent  : 10
+                loadingPercent  : 0
             });
-
-            this.catchImages(data.Image[name]);
+            if(name == "index"){
+                this.catchVideo(data.Image[name]);
+                //this.catchImages(data.Image.general);
+            }else
+                this.catchImages([...data.Image[name] , ...data.Image.general]);
         }
     }
 
@@ -112,7 +128,7 @@ class App extends Component {
                     <Redirect to={`/index`} />
                 </Switch>
                 
-                <LoadingContainer percent = {loadingPercent}>
+                <LoadingContainer percent = {Math.ceil(loadingPercent)}>
                     <img src={`${process.env.PUBLIC_URL}/asset/loading.gif`} />
                     <div className="loadingBarBorder"></div>
                 </LoadingContainer>

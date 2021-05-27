@@ -999,7 +999,7 @@
     }],
 
     "Image" : {
-        "index" : [
+        "general" : [
             "loading.gif",
             "fixed_fb.png",
             "icon_contact.png",
@@ -1008,16 +1008,15 @@
             "icon_result.png",
             "icon_story.png",
             "icon_team.png",
-            "bg_project.png",
-            "bg_project.png",
-            "bg_record.png",
-            "bg_result.png",
-            "bg_story.png",
-            "bg_team.png",
             "logo.png",
             "logoBlue.png"
         ],
+        "index" : [
+            "bg_index_video.mp4"
+        ],
         "story":[
+            "bg_story.png",
+            "bg_bellow980_story.png",
             "story_boomboom.png",
             "story_chubby.png",
             "story_fantasy.png",
@@ -1025,6 +1024,8 @@
             "story_theme.png"
         ],
         "project":[
+            "bg_project.png",
+            "bg_bellow980_project.png",
             "project/project1_thumbnail.png",
             "project/project2_thumbnail.png",
             "project/project3_thumbnail.png",
@@ -1048,6 +1049,8 @@
             "project/project21_thumbnail.png"
         ],
         "team":[
+            "bg_team.png",
+            "bg_bellow980_team.png",
             "team_bg.png",
             "team_img_active.png",
             "team_img_admin.png",
@@ -1063,6 +1066,8 @@
             "team_txt_PR.png"
         ],
         "record":[
+            "bg_record.png",
+            "bg_bellow980_record.png",
             "record/record (1).jpg",
             "record/record (2).jpg",
             "record/record (3).jpg",
@@ -1094,6 +1099,8 @@
             "record/record (30).jpg"
         ],
         "result":[
+            "bg_result.png",
+            "bg_bellow980_result.png",
             "products/bigBag.png",
             "products/cloth.png",
             "products/introNote.png",
@@ -1136,6 +1143,4 @@
             "facebook/facebook (28).jpg"
         ]
     }
-
-
 }
