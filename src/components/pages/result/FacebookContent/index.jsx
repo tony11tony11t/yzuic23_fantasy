@@ -40,7 +40,7 @@ export default class FacebookContent extends Component {
                                                     </a>
                                                 </div>
                                                 <div>
-                                                    <h3>2020<br/><span>{d.date}</span></h3>
+                                                    <h3>2020.{d.date}</h3>
                                                     <h2>{d.content}</h2>
                                                 </div>
                                             </HistoryContainerLeft>
@@ -51,14 +51,14 @@ export default class FacebookContent extends Component {
                                     {
                                         (i % 2 == 0 || version == "mobile")? (
                                             <HistoryContainerRight>
-                                                <div>
-                                                    <h3>2020<br/><span>{d.date}</span></h3>
-                                                    <h2>{d.content}</h2>
-                                                </div>
                                                 <div className = "ImgContainer">
                                                     <a href = {d.url}>
                                                         <img src={`${process.env.PUBLIC_URL}/asset/facebook/${d.src}`} />
                                                     </a>
+                                                </div>
+                                                <div>
+                                                    <h3>2020.{d.date}</h3>
+                                                    <h2>{d.content}</h2>
                                                 </div>
                                             </HistoryContainerRight>
                                         ) : null

@@ -13,7 +13,7 @@ export const FacebookWrapper = styled.div`
 
     .endRow{
         display : flex;
-        height  : 100px;
+        height  : 250px;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             height  : 30px;
@@ -43,7 +43,11 @@ export const FacebookWrapper = styled.div`
 export const HistoryWrapper = styled.div`
 
     display : flex;
-    height  : 300px;
+    height  : 400px;
+
+    @media ${({theme}) => theme.mediaQueries.bellow980} {
+        height  : 370px;
+    }
 
     div{
         flex : 1;
@@ -79,9 +83,13 @@ export const HistoryContainerLeft = styled.div`
     display             : flex;
     padding             : 30px;
     position            : relative;
+    flex-direction      : column;
+    width               : 480px;
+    margin-left         : auto;
 
     @media ${({theme}) => theme.mediaQueries.bellow980} {
         padding         : 20px;
+        width           : 100%;
     }
 
     &::before{
@@ -112,29 +120,22 @@ export const HistoryContainerLeft = styled.div`
 
     h3 , h2{
         color           : ${({theme}) => theme.colors.main};
-        font-weight     : 500;
-        margin          : 0 0 20px 20px;
+        margin          : 15px;
         word-break      : break-all;
-
+        white-space     : pre-line;
 
         @media ${({theme}) => theme.mediaQueries.bellow980} {
-            font-weight     : 600;
+            text-align : center;
         }
 
-        span{
-            font-size       : ${({theme}) => theme.fontSize.h1}px;
-
-            @media ${({theme}) => theme.mediaQueries.bellow980} {
-                font-size   : ${({theme}) => theme.fontSize.bellow980.h3}px;
-            }
-        }
     }
 
     &>div{
         flex    : 1;
+        
 
         &.ImgContainer{
-            flex    : 1.3;
+
             img{
                 width   : 100%;
             }
@@ -142,15 +143,22 @@ export const HistoryContainerLeft = styled.div`
         
         @media ${({theme}) => theme.mediaQueries.bellow980} {
             &.ImgContainer{
-                flex        : 0 0 130px;
+                flex        : 0 0 150px;
                 text-align  : right;
                 align-self  : center;
+
+                img{
+                    width : 150px;
+                }
             }
         }
     }
 `
 
 export const HistoryContainerRight = styled(HistoryContainerLeft)`
+
+    margin-left         : 0;
+    margin-right        : auto;
 
     &::before{
         top     : 10%;
@@ -169,9 +177,5 @@ export const HistoryContainerRight = styled(HistoryContainerLeft)`
             left    : -30px;
             width   : 28px;
         }
-    }
-
-    h3 , h2{
-        margin : 0 20px 20px 0;
     }
 `

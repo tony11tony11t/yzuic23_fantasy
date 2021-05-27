@@ -74,10 +74,10 @@ export default class Content extends Component {
                     <ProjectIntro device = {"mobile"}>
                         <h4>設計理念</h4>
                         <p>{Intro}</p>
-                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
+                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img2.jpg`}/>
                         <h4>作品介紹</h4>
                         <p>{Content}</p>
-                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
+                        <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img3.jpg`}/>
                         {
                             Video != "" ?
                                 <IframeContainer device = {"laptop"}>
