@@ -99,7 +99,7 @@ export default class Content extends Component {
                                 return (
                                     <Member key          = {uuidv4()}
                                             memberInfo   = {m}
-                                            projectIndex = {index}
+                                            projectIndex = {index - 1}
                                             i            = {i}
                                             flexW        = {this.getMemberFlexWidth(arr.length , i)} />
                                 )
