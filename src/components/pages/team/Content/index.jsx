@@ -6,14 +6,16 @@ import {Cancel ,
         FixedContentWrapper} from '../../../../theme/templete'
 
 export default class Content extends Component {
+
+    goBack = () => this.props.match.history.goBack();
     
     render() {
-        const {close , label} = this.props;
+        const {label} = this.props.match.match.params;
         const info = data.team[label];
         return (
             <FixedContentWrapper>
-                <Cancel onClick = {close}/>
-                <TeamContainer>
+                <Cancel onClick = {this.goBack}/>
+                {<TeamContainer>
                     <img src={`${process.env.PUBLIC_URL}/asset/team_photo_${label}.jpg`}/>
                     <TeamIntro>
                         <h1>{info.Name}</h1>
@@ -21,7 +23,7 @@ export default class Content extends Component {
                         <h3 className="description">{info.MurMur}</h3>
                         <h3 className="member">{info.Member}</h3>
                     </TeamIntro>
-                </TeamContainer>
+                </TeamContainer>}
             </FixedContentWrapper> 
         )
     }

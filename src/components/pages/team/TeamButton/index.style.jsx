@@ -19,9 +19,9 @@ export const HeadShake = keyframes`
 `;
 
 export const TeamButtonWrapper = styled.div`
+    
     background-image    : ${`url('${process.env.PUBLIC_URL}/asset/team_bg.png')`};
     border-radius       : 30px;
-    flex                : 0 0 40%;
     display             : flex;
     padding             : 20px 2%;
     margin              : 20px 2%;

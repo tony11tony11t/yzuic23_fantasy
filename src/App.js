@@ -89,7 +89,8 @@ class App extends Component {
 
     RouteListener = (prevProps) => {
         const {pathname} = this.props.location;
-        if (prevProps == null || pathname !== prevProps.location.pathname) {
+
+        if (prevProps == null || !(pathname.includes(prevProps.location.pathname) || prevProps.location.pathname.includes(pathname))) {
             let name = pathname.split("/")[1];
                 name = name == "/" || name == "" ? "index" : name;
             this.wrapper.current.scrollTop = 0;

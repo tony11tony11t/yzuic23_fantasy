@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { v4 as uuidv4 }     from "uuid"
 import {SubNavbarWrapper,
         SubNavbarContainer,
         SelectBlock}        from './index.style'
@@ -34,8 +35,9 @@ export default class SubNavBar extends Component {
                                  length = {data.length}/>
                         {data.map((info , i) => {
                             return (
-                                <li className = {content === info.name ? "select" : null}
-                                    onClick   = {this.changeContent.bind(this , info.name , i)}>
+                                <li key         = {uuidv4()}
+                                    className   = {content === info.name ? "select" : null}
+                                    onClick     = {this.changeContent.bind(this , info.name , i)}>
                                         {info.label}
                                 </li>
                             )

@@ -6,26 +6,16 @@ import Content                  from './Content'
 import data                     from '../../../data.json';
 import {Wrapper}                from '../../../theme/templete'
 import {ProjectContainer}       from './index.style'
+import {Route , Switch , Redirect}        from 'react-router-dom'
 
 export default class WebProject extends Component {
     state = {
-        contentVisible : false,
-        contentIndex   : null,
         project         : []
     }
 
     componentDidMount = () => {
         this.setState({project : data.project});
     }
-
-    showContent = index => {
-        this.setState({
-            contentVisible : true,
-            contentIndex   : index - 1
-        });
-    }
-
-    hideContent = () => this.setState({contentVisible : false});
 
     changePage = (name) => {
         let getProjects = () => {
@@ -46,7 +36,7 @@ export default class WebProject extends Component {
     }
     
     render() {
-        const {contentVisible , contentIndex , project} = this.state;
+        const {project} = this.state;
         const {projectSubNavBarItems} = data;
 
         return (
@@ -57,14 +47,18 @@ export default class WebProject extends Component {
 
                 <ProjectContainer>
                     {project.map((obj , i) => obj ? 
-                        <Works show  = {this.showContent} 
-                               index = {i + 1}
+                        <Works index = {i + 1}
                                info  = {obj}
                                key   = {uuidv4()}/> : 
                         null)}
                 </ProjectContainer>
 
-                {contentVisible ? <Content close = {this.hideContent} index = {contentIndex}/> : null}
+                <Switch>
+                    <Route  path     = {`/project/:index`}
+                            children = {(match) => (
+                                <Content match = {match}/>
+                            )} />
+                </Switch>
             </Wrapper>
         )
     }

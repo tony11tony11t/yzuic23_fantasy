@@ -25,42 +25,45 @@ export default class Content extends Component {
             return 50;
         }
     }
+    goBack = () => this.props.match.history.goBack();
     
     render() {
         const {project} = Data;
-        const {close , index} = this.props;
+        const {index : i} = this.props.match.match.params;
+        let index = parseInt(i);
+        const {Title , Tag , Intro , Content , Teacher , Video , Members} = project[index - 1];
         return (
             <FixedContentWrapper>
-                <Cancel onClick = {close}/>
+                <Cancel onClick = {this.goBack}/>
                 <ProjectContent>
-                    <h1>{project[index].Title}</h1>
-                    <h3>{project[index].Tag}</h3>
-                    <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img1.jpg`} className="master"/>
+                    <h1>{Title}</h1>
+                    <h3>{Tag}</h3>
+                    <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img1.jpg`} className="master"/>
                     <ProjectIntro device = {"laptop"}>
                         <div className="ProjectContainer">
                             <div className="left">
-                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
+                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img2.jpg`}/>
                             </div>
                             <div className="right">
                                 <h4>設計理念</h4>
-                                <p>{project[index].Intro}</p>
+                                <p>{Intro}</p>
                                 <h4>作品介紹</h4>
-                                <p>{project[index].Content}</p> 
+                                <p>{Content}</p> 
                             </div>
                         </div>
                         <div className="ProjectContainer">
                             <div className="left">
-                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
+                                <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img3.jpg`}/>
                                 <ProjectTeacher>
                                     <h5>指導老師</h5>
-                                    <h5>{project[index].Teacher.join("、")}</h5>
+                                    <h5>{Teacher.join("、")}</h5>
                                 </ProjectTeacher>
                             </div>
                             <div className="right">
                                 {
-                                    project[index].Video != "" ?
+                                    Video != "" ?
                                         <IframeContainer device = {"laptop"}>
-                                            <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <iframe src={Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         </IframeContainer> :
                                         null
                                 }
@@ -70,29 +73,29 @@ export default class Content extends Component {
 
                     <ProjectIntro device = {"mobile"}>
                         <h4>設計理念</h4>
-                        <p>{project[index].Intro}</p>
+                        <p>{Intro}</p>
                         <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img2.jpg`}/>
                         <h4>作品介紹</h4>
-                        <p>{project[index].Content}</p>
+                        <p>{Content}</p>
                         <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
                         {
-                            project[index].Video != "" ?
+                            Video != "" ?
                                 <IframeContainer device = {"laptop"}>
-                                    <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src={Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </IframeContainer> :
                                 null
                         }
                         <ProjectTeacher>
                             <h5>指導老師</h5>
-                            <h5>{project[index].Teacher.join("、")}</h5>
+                            <h5>{Teacher.join("、")}</h5>
                         </ProjectTeacher>
                     </ProjectIntro>
                     
                     
                     <h4>製作團隊</h4>
-                    <ProjectMemberContainer length = {project[index].Members.length}>
+                    <ProjectMemberContainer length = {Members.length}>
                         {
-                            project[index].Members.map((m , i , arr) => {
+                            Members.map((m , i , arr) => {
                                 return (
                                     <Member key          = {uuidv4()}
                                             memberInfo   = {m}

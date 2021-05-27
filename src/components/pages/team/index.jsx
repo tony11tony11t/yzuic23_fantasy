@@ -4,14 +4,11 @@ import TeamButton           from './TeamButton'
 import Content              from './Content'
 import {CategoryWrapper}    from './index.style'
 import data                 from '../../../data.json'
+import {Route , Switch}     from 'react-router-dom'
 
 
 export default class WebTeam extends Component {
 
-    state = {
-        contentVisible : false,
-        content        : null
-    }
 
     showContent = label => {
         this.setState({
@@ -19,10 +16,8 @@ export default class WebTeam extends Component {
             contentLabel    : label
         });
     }
-    hideContent = () => this.setState({contentVisible : false});
     
     render() {
-        const {contentVisible , contentLabel} = this.state;
 
         return (
             <>
@@ -34,9 +29,12 @@ export default class WebTeam extends Component {
 
                     )}       
                 </CategoryWrapper>
-                {contentVisible ?   <Content close = {this.hideContent} 
-                                             label = {contentLabel}/> : 
-                                    null}
+                <Switch>
+                    <Route  path     = {`/team/:label`}
+                            children = {(match) => (
+                                <Content match = {match}/>
+                            )} />
+                </Switch>
             </>
         )
     }

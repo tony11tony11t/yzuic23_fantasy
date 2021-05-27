@@ -43,9 +43,9 @@ export default class MobileSubNavBar extends Component {
                     menuVisible ? <SubNavbarContainer length = {data.length}>
                                     {data.map((info) => {
                                         return (
-                                            <li key = {uuidv4()}
-                                                className = {content === info.name ? "select" : null}
-                                                onClick   = {this.changeContent.bind(this , info.name)}>
+                                            <li key         = {uuidv4()}
+                                                className   = {content === info.name ? "select" : null}
+                                                onClick     = {this.changeContent.bind(this , info.name)}>
                                                     {info.label}
                                             </li>
                                         )
