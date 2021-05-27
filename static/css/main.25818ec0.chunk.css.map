@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/components/RaderChart/index.css"],"names":[],"mappings":"AAAA,KACI,eACJ,CACA,WACI,aACJ","file":"main.25818ec0.chunk.css","sourcesContent":["text{\r\n    font-size: .8rem;\r\n}\r\nsvg .score{\r\n    transition: 1s;\r\n}"]}
