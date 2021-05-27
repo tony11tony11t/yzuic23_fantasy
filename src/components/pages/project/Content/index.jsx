@@ -50,9 +50,13 @@ export default class Content extends Component {
                             <p>{project[index].Intro}</p>
                             <h4>作品介紹</h4>
                             <p>{project[index].Content}</p>
-                            {/*<IframeContainer device = {"laptop"}>
-                                <iframe src="https://www.youtube.com/watch?v=AGAzT90lg08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </IframeContainer>*/}
+                            {
+                                project[index].Video != "" ?
+                                    <IframeContainer device = {"laptop"}>
+                                        <iframe src="https://www.youtube.com/watch?v=AGAzT90lg08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </IframeContainer> :
+                                    null
+                            }
                         </div>
                     </ProjectIntro>
 
@@ -63,9 +67,13 @@ export default class Content extends Component {
                         <h4>作品介紹</h4>
                         <p>{project[index].Content}</p>
                         <img src={`${process.env.PUBLIC_URL}/asset/project/project${index + 1}_img3.jpg`}/>
-                        {/*<IframeContainer device = {"mobile"}>
-                            <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </IframeContainer>*/}
+                        {
+                            project[index].Video != "" ?
+                                <IframeContainer device = {"laptop"}>
+                                    <iframe src="https://www.youtube.com/watch?v=AGAzT90lg08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </IframeContainer> :
+                                null
+                        }
                         <ProjectTeacher>
                             <h5>指導老師</h5>
                             <h5>{project[index].Teacher.join("、")}</h5>

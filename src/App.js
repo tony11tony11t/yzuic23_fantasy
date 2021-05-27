@@ -94,7 +94,6 @@ class App extends Component {
             });
             if(name == "index"){
                 this.catchVideo(data.Image[name]);
-                //this.catchImages(data.Image.general);
             }else
                 this.catchImages([...data.Image[name] , ...data.Image.general]);
         }
