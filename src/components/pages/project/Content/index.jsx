@@ -53,7 +53,7 @@ export default class Content extends Component {
                             {
                                 project[index].Video != "" ?
                                     <IframeContainer device = {"laptop"}>
-                                        <iframe src="https://www.youtube.com/watch?v=AGAzT90lg08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </IframeContainer> :
                                     null
                             }
@@ -70,7 +70,7 @@ export default class Content extends Component {
                         {
                             project[index].Video != "" ?
                                 <IframeContainer device = {"laptop"}>
-                                    <iframe src="https://www.youtube.com/watch?v=AGAzT90lg08" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe src={project[index].Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </IframeContainer> :
                                 null
                         }
