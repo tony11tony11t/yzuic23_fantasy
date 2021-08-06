@@ -17,5 +17,9 @@ export const CategoryWrapper = styled.div`
         align-content   : flex-start;
         margin-bottom   : 1rem;
         height          : auto;
+
+        a{
+            flex : 0 0 100%;
+        }
     }
 `

@@ -34,11 +34,6 @@ export default class Navbar extends Component {
                             <Item {...info}
                                   key = {uuidv4()}/>)}
                     </NavbarCotainer>
-                    <NavbarCotainer flex ={1}>
-                        <a href="#">
-                            <img src={`${process.env.PUBLIC_URL}/asset/fixed_fb.png`}/>
-                        </a>
-                    </NavbarCotainer>
                     <MobileMeunBtn onClick = {this.ShowMoblieMenu}/>
                 </NavbarWrapper>
                 <MobileMenu HideMoblieMenu  = {this.HideMoblieMenu}

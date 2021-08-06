@@ -32,11 +32,6 @@ export default class MoblieMenu extends Component {
                             </li>
                         </Link>
                     )}
-                    <li>
-                        <a href="#">
-                            <img src={`${process.env.PUBLIC_URL}/asset/fixed_fb.png`}/>
-                        </a>
-                    </li>
                 </ul>
                 
             </MoblieMenuWrapper>

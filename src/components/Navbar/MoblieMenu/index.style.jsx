@@ -64,10 +64,4 @@ export const MoblieMenuWrapper = styled.div`
             }
         }
     }
-
-    a{
-        img{
-            width : 50px
-        }
-    }
 `

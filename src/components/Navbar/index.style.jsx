@@ -62,7 +62,6 @@ export const NavbarWrapper = styled.div`
 export const NavbarCotainer = styled.div`
     display             : flex;
     flex-direction      : row;
-    flex                : ${({flex}) => flex ?? null};
     justify-content     : flex-end;
     width               : 548px;
 
