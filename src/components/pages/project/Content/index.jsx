@@ -80,7 +80,7 @@ export default class Content extends Component {
                         <img src={`${process.env.PUBLIC_URL}/asset/project/project${index}_img3.jpg`}/>
                         {
                             Video != "" ?
-                                <IframeContainer device = {"laptop"}>
+                                <IframeContainer device = {"mobile"}>
                                     <iframe src={Video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </IframeContainer> :
                                 null
